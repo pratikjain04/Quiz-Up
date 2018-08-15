@@ -73,7 +73,13 @@ class SignInState extends State<SignIn>{
                     color: googleSignInColor,
                     child: Row(
                       children: <Widget>[
-                        new Image(image: new AssetImage('images/whitegooglelogo.png'), height: 20.0, width: 20.0,)
+                        new Image(image: new AssetImage('images/whitegooglelogo.png'), height: 20.0, width: 20.0),
+                        new Padding(padding: EdgeInsets.all(25.0)),
+                        new Text('Sign In with Google' ,
+                          style: new TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.0,
+                          ),)
                       ],
                     ),
                   ),
