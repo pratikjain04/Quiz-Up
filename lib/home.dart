@@ -19,7 +19,6 @@ class HomeState extends State<Home>{
         padding: new EdgeInsets.all(32.0),
         child: new Container(
             child: new Column(
-
               children: <Widget>[
                 new Row(
                   children: <Widget>[
