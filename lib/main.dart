@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'theme_color.dart';
 import 'home.dart';
 import 'dart:async';
+import 'package:demo_1/backend/SignIn.dart';
 
 void main() => runApp(new MaterialApp(
   theme: ThemeData(
@@ -12,6 +13,7 @@ void main() => runApp(new MaterialApp(
   routes: <String, WidgetBuilder>{
     '/Splash' : (BuildContext context) => new Splash(),
     '/Home': (BuildContext context) => new Home(),
+    '/SignIn': (BuildContext context) => new SignIn(),
   },
 ));
 
@@ -26,7 +28,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5) , () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false ));
+    Timer(Duration(seconds: 5) , () => Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false ));
 
   }
 
