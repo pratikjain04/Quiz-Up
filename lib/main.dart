@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:demo_1/backend/SignIn.dart';
 
 void main() => runApp(new MaterialApp(
+  debugShowCheckedModeBanner: false,
   theme: ThemeData(
     primaryColor: primaryColor,
     accentColor: accentColor,

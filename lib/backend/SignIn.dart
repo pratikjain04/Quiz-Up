@@ -54,6 +54,8 @@ class SignInState extends State<SignIn> {
         ],
       )),
       body: Container(
+
+        //gradient defined inside the BoxDecoration
         decoration: BoxDecoration(
             color: Colors.lightBlueAccent,
             gradient: LinearGradient(colors: <Color>[

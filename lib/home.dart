@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'theme_color.dart';
 import 'package:demo_1/backend/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -37,24 +36,28 @@ class HomeState extends State<Home>{
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-        color: primaryColor,
+        color: Colors.cyan,
         padding: new EdgeInsets.all(32.0),
         child: new Container(
           child: new Column(
             children: <Widget>[
               new Row(
                 children: <Widget>[
-                  new Text("PlaceHolder"),
+                  new Text(""),
                 ],
               ),
               Expanded(
                 child: new Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    RaisedButton(
-                      onPressed: widget.isLogged ? _signOut : null,
-                      color: Colors.blue,
-                      child: Text('Sign out'),
+                    Container(
+                      height: 50.0,
+                      width: 220.0,
+                      child: RaisedButton(
+                        onPressed: widget.isLogged ? _signOut : null,
+                        color: Colors.blue,
+                        child: Text('Sign out', style: new TextStyle(color: Colors.white, fontSize: 18.0) ),
+                      ),
                     ),
                   ],
                 ),
