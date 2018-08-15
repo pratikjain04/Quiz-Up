@@ -18,26 +18,26 @@ class HomeState extends State<Home>{
         color: primaryColor,
         padding: new EdgeInsets.all(32.0),
         child: new Container(
-            child: new Column(
-              children: <Widget>[
-                new Row(
+          child: new Column(
+            children: <Widget>[
+              new Row(
+                children: <Widget>[
+                  new Text("PlaceHolder"),
+                ],
+              ),
+              Expanded(
+                child: new Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    new Text("PlaceHolder"),
+                    new Text('Quiz Questions here: '),
                   ],
                 ),
-                Expanded(
-                  child: new Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new Text('Quiz Questions here: '),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-      );
+      ),
+    );
   }
 }
 
