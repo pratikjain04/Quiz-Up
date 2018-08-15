@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:demo_1/theme_color.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -51,25 +51,40 @@ class SignInState extends State<SignIn>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Firebase demo'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Sign In Page'),
+          ],
+        )
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
-              child: RaisedButton(
-                onPressed: _isLogged ? null : () => _signIn().then((FirebaseUser user) => print(user)).catchError((e) => print(e)),
-                color: Colors.green,
-                child: Text('Sign In'),
+              child: Center(
+                child: Container(
+                  width: 330.0,
+                  height: 50.0,
+                  child: RaisedButton(
+                    onPressed: _isLogged ? null : () => _signIn().then((FirebaseUser user) => print(user)).catchError((e) => print(e)),
+                    color: googleSignInColor,
+                    child: Row(
+                      children: <Widget>[
+                        new Image(image: new AssetImage('images/whitegooglelogo.png'), height: 20.0, width: 20.0,)
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
             RaisedButton(
               onPressed: _isLogged ? _signOut : null,
-              color: Colors.red,
+              color: Colors.blue,
               child: Text('Sign out'),
             ),
             Text(_text)
