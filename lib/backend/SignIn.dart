@@ -3,6 +3,7 @@ import 'package:demo_1/theme_color.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import '../home.dart';
 
 void main() => runApp(new MaterialApp(
   home: new SignIn(),
@@ -10,6 +11,13 @@ void main() => runApp(new MaterialApp(
 ));
 
 class SignIn extends StatefulWidget {
+
+
+  bool isLogged;
+  String text;
+
+  SignIn({this.isLogged = false, this.text = ''});
+
   @override
   SignInState createState() => new SignInState();
 }
@@ -18,9 +26,6 @@ class SignInState extends State<SignIn>{
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
-
-  bool _isLogged = false;
-  String _text = '';
 
   Future<FirebaseUser> _signIn() async {
     GoogleSignInAccount gSI = await googleSignIn.signIn();
@@ -31,21 +36,14 @@ class SignInState extends State<SignIn>{
         accessToken: gSA.accessToken
     );
     setState((){
-      _isLogged = true;
-      _text = 'Signed in successfully';
+      widget.isLogged = true;
+      widget.text = 'Signed in successfully';
     });
     print("User name: ${user.displayName}");
+    Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new Home(isLogged: widget.isLogged, text: widget.text,)));
     return user;
   }
 
-  void _signOut() {
-    googleSignIn.signOut();
-    setState(() {
-      _isLogged = false;
-      _text = 'Signed out successfully';
-    });
-    print("User Signed out");
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +69,7 @@ class SignInState extends State<SignIn>{
                   width: 330.0,
                   height: 50.0,
                   child: RaisedButton(
-                    onPressed: _isLogged ? null : () => _signIn().then((FirebaseUser user) => print(user)).catchError((e) => print(e)),
+                    onPressed: widget.isLogged ? null : () => _signIn().then((FirebaseUser user) => print(user)).catchError((e) => print(e)),
                     color: googleSignInColor,
                     child: Row(
                       children: <Widget>[
@@ -82,12 +80,7 @@ class SignInState extends State<SignIn>{
                 ),
               ),
             ),
-            RaisedButton(
-              onPressed: _isLogged ? _signOut : null,
-              color: Colors.blue,
-              child: Text('Sign out'),
-            ),
-            Text(_text)
+            Text(widget.text)
           ],
         ),
       ),
