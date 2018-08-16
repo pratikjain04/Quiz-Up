@@ -5,11 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../home.dart';
 
-void main() => runApp(new MaterialApp(
-      home: new SignIn(),
-      debugShowCheckedModeBanner: false,
-    ));
-
 class SignIn extends StatefulWidget {
   bool isLogged;
   String text;
@@ -21,6 +16,7 @@ class SignIn extends StatefulWidget {
 }
 
 class SignInState extends State<SignIn> {
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
 
@@ -34,7 +30,6 @@ class SignInState extends State<SignIn> {
       widget.isLogged = true;
       widget.text = 'Signed in successfully';
     });
-    print("User name: ${user.displayName}");
     Navigator.of(context).push(new MaterialPageRoute(
         builder: (BuildContext context) => new Home(
               isLogged: widget.isLogged,
@@ -54,14 +49,13 @@ class SignInState extends State<SignIn> {
         ],
       )),
       body: Container(
-
         //gradient defined inside the BoxDecoration
         decoration: BoxDecoration(
             color: Colors.lightBlueAccent,
             gradient: LinearGradient(colors: <Color>[
               Colors.lightBlueAccent,
               Colors.lightBlue[400],
-              Colors.blue[600]
+              Colors.blue[600],
             ])),
         child: Padding(
           padding: EdgeInsets.all(20.0),
@@ -78,7 +72,6 @@ class SignInState extends State<SignIn> {
                       onPressed: widget.isLogged
                           ? null
                           : () => _signIn()
-                              .then((FirebaseUser user) => print(user))
                               .catchError((e) => print(e)),
                       color: googleSignInColor,
                       child: Row(

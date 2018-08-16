@@ -3,9 +3,6 @@ import 'package:demo_1/backend/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-
-void main() => runApp(new MaterialApp(home: new Home(),));
-
 class Home extends StatefulWidget{
 
   bool isLogged;
@@ -19,7 +16,6 @@ class Home extends StatefulWidget{
 
 class HomeState extends State<Home>{
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
 
   void _signOut() {
@@ -28,8 +24,7 @@ class HomeState extends State<Home>{
       widget.isLogged = false;
       widget.text = 'Signed out successfully';
     });
-    print("User Signed out");
-    Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new SignIn()));
+    Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new SignIn(isLogged: widget.isLogged, text: widget.text)));
   }
 
   @override
