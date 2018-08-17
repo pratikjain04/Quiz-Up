@@ -15,6 +15,7 @@ class SignIn extends StatefulWidget {
   SignInState createState() => new SignInState();
 }
 
+
 class SignInState extends State<SignIn> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -60,8 +61,18 @@ class SignInState extends State<SignIn> {
         child: Padding(
           padding: EdgeInsets.all(20.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 70.0),
+              ),
+              Center(
+                child: Text("Quiz Up",
+                  style: new TextStyle(
+                      color: Colors.white,
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold
+                  ),),
+              ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: Center(
