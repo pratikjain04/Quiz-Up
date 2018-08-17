@@ -41,13 +41,6 @@ class SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text('Sign In Page'),
-        ],
-      )),
       body: Container(
         //gradient defined inside the BoxDecoration
         decoration: BoxDecoration(
@@ -68,30 +61,33 @@ class SignInState extends State<SignIn> {
                   child: Container(
                     width: 330.0,
                     height: 50.0,
-                    child: RaisedButton(
-                      onPressed: widget.isLogged
-                          ? null
-                          : () => _signIn()
-                              .catchError((e) => print(e)),
-                      color: googleSignInColor,
-                      child: Row(
-                        children: <Widget>[
-                          new Image(
-                              image:
-                                  new AssetImage('images/whitegooglelogo.png'),
-                              height: 20.0,
-                              width: 20.0),
-                          new Padding(padding: EdgeInsets.all(25.0)),
-                          new Text(
-                            'Sign In with Google',
-                            style: new TextStyle(
-                              color: Colors.white,
-                              fontSize: 18.0,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                        child: RaisedButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)
+                          ),
+                          elevation: 30.0,
+                          onPressed: widget.isLogged
+                              ? null
+                              : () => _signIn()
+                                  .catchError((e) => print(e)),
+                          color: googleSignInColor,
+                          child: Row(
+                            children: <Widget>[
+                              Image(
+                                  image: AssetImage('images/whitegooglelogo.png'),
+                                  height: 20.0,
+                                  width: 20.0),
+                              Padding(padding: EdgeInsets.all(25.0)),
+                              Text(
+                                'Sign In with Google',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                   ),
                 ),
               ),
