@@ -35,12 +35,16 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
+    return Scaffold(
+      body: Container(
         color: loaderColor,
-        padding: new EdgeInsets.all(32.0),
-        child: new Center(
-            child: new Image(image: new AssetImage('images/whiteloader.gif'))
+        padding: EdgeInsets.all(32.0),
+        child: Center(
+            child: Container(
+                height: 200.0,
+                width: 100.0,
+                child: Image(
+                    image: AssetImage('images/whiteloader.gif')))
         ),
       ),
     );
