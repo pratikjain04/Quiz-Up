@@ -62,12 +62,12 @@ class SignInState extends State<SignIn> {
                 child: Text("Quiz Up",
                   style: new TextStyle(
                       color: Colors.white,
-                      fontSize: 40.0,
+                      fontSize: 50.0,
                       fontWeight: FontWeight.bold
                   ),),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
+                padding: const EdgeInsets.only(top: 180.0),
                 child: Center(
                   child: Container(
                     width: 330.0,
