@@ -40,7 +40,7 @@ class SignInState extends State<SignIn> {
                   Colors.blue[600],
                 ])),
           ),
-          clipper: new MyClipper(),
+          clipper: SignInClipper(),
         ),
         Column(
           children: <Widget>[
@@ -93,7 +93,7 @@ class SignInState extends State<SignIn> {
 }
 
 
-class MyClipper extends CustomClipper<Path> {
+class SignInClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = new Path();
@@ -106,5 +106,5 @@ class MyClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
