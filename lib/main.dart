@@ -34,75 +34,25 @@ class _SplashState extends State<Splash> {
     super.initState();
     _auth.currentUser().then((user){
       if(user != null)
-        Timer(Duration(seconds: 3), () => Navigator.of(context).pushNamed('/Home'));
+        Timer(Duration(milliseconds: 6200), () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false));
       else
-        Timer(Duration(seconds: 3), () => Navigator.of(context).pushNamed('/SignIn'));
+        Timer(Duration(milliseconds: 6200), () => Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false ));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(color: primaryColor),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 50.0,
-                        child: Icon(
-                          Icons.book,
-                          color: accentColor,
-                          size: 50.0,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                      ),
-                      Text(
-                        'Word Power',
-                        style: TextStyle(
-                            fontSize: 24.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircularProgressIndicator(),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20.0),
-                    ),
-                    Text("Word Game \nFor Everyone",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0
-                      ),),
-
-                  ],
-                ),
-              )
-            ],
-          )
-        ],
+      body: Container(
+        color: loaderColor,
+        padding: EdgeInsets.all(32.0),
+        child: Center(
+            child: Container(
+                height: 200.0,
+                width: 100.0,
+                child: Image(
+                    image: AssetImage('images/whiteloader.gif')))
+        ),
       ),
     );
   }
