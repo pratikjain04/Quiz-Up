@@ -3,6 +3,7 @@ import 'theme_color.dart';
 import 'home.dart';
 import 'dart:async';
 import 'package:demo_1/backend/SignIn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() => runApp(new MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -26,17 +27,22 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3) , () => Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false ));
-
+    _auth.currentUser().then((user){
+      if(user != null)
+        Timer(Duration(seconds: 3), () => Navigator.of(context).pushNamed('/Home'));
+      else
+        Timer(Duration(seconds: 3), () => Navigator.of(context).pushNamed('/SignIn'));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-
+    return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[

@@ -3,13 +3,8 @@ import 'package:demo_1/theme_color.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import '../home.dart';
 
 class SignIn extends StatefulWidget {
-  bool isLogged;
-  String text;
-
-  SignIn({this.isLogged = false, this.text = ''});
 
   @override
   SignInState createState() => new SignInState();
@@ -17,25 +12,16 @@ class SignIn extends StatefulWidget {
 
 class SignInState extends State<SignIn> {
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<FirebaseUser> _signIn() async {
+  Future _signIn() async {
     GoogleSignInAccount gSI = await googleSignIn.signIn();
     GoogleSignInAuthentication gSA = await gSI.authentication;
 
-    FirebaseUser user = await _auth.signInWithGoogle(
-        idToken: gSA.idToken, accessToken: gSA.accessToken);
-    setState(() {
-      widget.isLogged = true;
-      widget.text = 'Signed in successfully';
+    _auth.signInWithGoogle(idToken: gSA.idToken, accessToken: gSA.accessToken).then((user){
+      Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false);
     });
-    Navigator.of(context).push(new MaterialPageRoute(
-        builder: (BuildContext context) => new Home(
-              isLogged: widget.isLogged,
-              text: widget.text,
-            )));
-    return user;
   }
 
   @override
@@ -66,10 +52,7 @@ class SignInState extends State<SignIn> {
                             borderRadius: BorderRadius.circular(20.0)
                           ),
                           elevation: 30.0,
-                          onPressed: widget.isLogged
-                              ? null
-                              : () => _signIn()
-                                  .catchError((e) => print(e)),
+                          onPressed: _signIn,
                           color: googleSignInColor,
                           child: Row(
                             children: <Widget>[
@@ -91,7 +74,6 @@ class SignInState extends State<SignIn> {
                   ),
                 ),
               ),
-              Text(widget.text)
             ],
           ),
         ),

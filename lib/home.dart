@@ -1,30 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:demo_1/backend/SignIn.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Home extends StatefulWidget{
 
-  bool isLogged;
-  String text;
-
   @override
-  HomeState createState()=> HomeState();
-  Home({this.isLogged, this.text});
+  HomeState createState() => HomeState();
 
 }
 
 class HomeState extends State<Home>{
-
   final GoogleSignIn googleSignIn = new GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void _signOut() {
-    googleSignIn.signOut();
-    setState(() {
-      widget.isLogged = false;
-      widget.text = 'Signed out successfully';
+  void _signOut() async{
+    _auth.signOut().whenComplete((){
+      googleSignIn.signOut();
     });
-    Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new SignIn(isLogged: widget.isLogged, text: widget.text)));
+    Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false);
   }
 
   @override
@@ -49,7 +42,7 @@ class HomeState extends State<Home>{
                       height: 50.0,
                       width: 220.0,
                       child: RaisedButton(
-                        onPressed: widget.isLogged ? _signOut : null,
+                        onPressed: _signOut,
                         color: Colors.blue,
                         child: Text('Sign out', style: new TextStyle(color: Colors.white, fontSize: 18.0) ),
                       ),
