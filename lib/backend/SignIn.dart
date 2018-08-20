@@ -11,7 +11,28 @@ class SignIn extends StatefulWidget {
 }
 
 
-class SignInState extends State<SignIn> {
+class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
+
+  AnimationController controller;
+  Animation<double> animation;
+
+  @override
+  void initState(){
+    super.initState();
+    controller = new AnimationController(duration: new Duration(milliseconds: 2300),vsync: this);
+    animation = new CurvedAnimation(parent: controller, curve: Curves.decelerate);
+
+    controller.addListener(() => setState(() {}));
+    controller.forward();
+  }
+
+
+  @override
+  void dispose()
+  {
+    controller.dispose();
+    super.dispose();
+  }
 
   final GoogleSignIn googleSignIn = new GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -47,6 +68,10 @@ class SignInState extends State<SignIn> {
             Padding(
               padding: EdgeInsets.only(top: 100.0),
             ),
+            FlutterLogo(
+              size: (animation.value * 90),
+            ),
+            Padding(padding: const EdgeInsets.only(top: 40.0)),
             Text(
               "Quiz Up",
               style: new TextStyle(
@@ -54,8 +79,10 @@ class SignInState extends State<SignIn> {
                   fontSize: 50.0,
                   fontWeight: FontWeight.bold),
             ),
+
+
             Padding(
-              padding: const EdgeInsets.only(top: 180.0),
+              padding: const EdgeInsets.only(top: 80.0),
               child: Center(
                 child: Container(
                   width: 330.0,
