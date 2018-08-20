@@ -34,9 +34,9 @@ class _SplashState extends State<Splash> {
     super.initState();
     _auth.currentUser().then((user){
       if(user != null)
-        Timer(Duration(milliseconds: 6200), () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false));
+        Timer(Duration(milliseconds: 3200), () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false));
       else
-        Timer(Duration(milliseconds: 6200), () => Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false ));
+        Timer(Duration(milliseconds: 3200), () => Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false ));
     });
   }
 
@@ -44,7 +44,13 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: loaderColor,
+        decoration: BoxDecoration(
+            color: Colors.lightBlueAccent,
+            gradient: LinearGradient(colors: <Color>[
+              Colors.lightBlueAccent,
+              Colors.lightBlue[400],
+              Colors.blue[600],
+            ])),
         padding: EdgeInsets.all(32.0),
         child: Center(
             child: Container(
