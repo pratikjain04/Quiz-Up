@@ -7,7 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class SignIn extends StatefulWidget {
 
   @override
-  SignInState createState() => new SignInState();
+  SignInState createState() => SignInState();
 }
 
 
@@ -19,8 +19,8 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
   @override
   void initState(){
     super.initState();
-    controller = new AnimationController(duration: new Duration(milliseconds: 2300),vsync: this);
-    animation = new CurvedAnimation(parent: controller, curve: Curves.decelerate);
+    controller = AnimationController(duration: Duration(milliseconds: 2300),vsync: this);
+    animation =  CurvedAnimation(parent: controller, curve: Curves.decelerate);
 
     controller.addListener(() => setState(() {}));
     controller.forward();
@@ -71,10 +71,10 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
             FlutterLogo(
               size: (animation.value * 90),
             ),
-            Padding(padding: const EdgeInsets.only(top: 40.0)),
+            Padding(padding: EdgeInsets.only(top: 40.0)),
             Text(
               "Quiz Up",
-              style: new TextStyle(
+              style: TextStyle(
                   color: Colors.lightBlueAccent,
                   fontSize: 50.0,
                   fontWeight: FontWeight.bold),
@@ -82,7 +82,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
 
 
             Padding(
-              padding: const EdgeInsets.only(top: 80.0),
+              padding: EdgeInsets.only(top: 80.0),
               child: Center(
                 child: Container(
                   width: 330.0,

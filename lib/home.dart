@@ -29,25 +29,56 @@ class HomeState extends State<Home> {
           Image(
             image: new AssetImage('images/bluebrickwall.jpg'),
             fit: BoxFit.cover,
-
           ),
-
-           Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: 50.0,
-                  width: 220.0,
-                  child: RaisedButton(
-                    onPressed: _signOut,
-                    color: Colors.blue,
-                    child: Text('Sign Out',
-                        style:
-                            new TextStyle(color: Colors.white, fontSize: 18.0)),
-                  ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: 50.0,
+                width: 220.0,
+                child: RaisedButton(
+                  onPressed: () => Navigator
+                      .of(context)
+                      .pushNamedAndRemoveUntil(
+                          '/GameHome', (Route<dynamic> route) => false),
+                  color: Colors.blue,
+                  child: Text('Normal Mode',
+                      style: TextStyle(color: Colors.white, fontSize: 18.0)),
                 ),
-              ],
-            ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(20.0),
+              ),
+              Container(
+                height: 50.0,
+                width: 220.0,
+                // CURRENTLY BOTH THE PAGES ARE REDIRECTING TO THE SAME PAGE, WILL CHANGE THIS AFTERWARDS
+                //Todo:
+                child: RaisedButton(
+                  onPressed: () => Navigator
+                      .of(context)
+                      .pushNamedAndRemoveUntil(
+                      '/GameHome', (Route<dynamic> route) => false),
+                  color: Colors.blue,
+                  child: Text('GRE Mode',
+                      style: TextStyle(color: Colors.white, fontSize: 18.0)),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(20.0),
+              ),
+              Container(
+                height: 50.0,
+                width: 220.0,
+                child: RaisedButton(
+                  onPressed: _signOut,
+                  color: Colors.blue,
+                  child: Text('Sign Out',
+                      style: TextStyle(color: Colors.white, fontSize: 18.0)),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

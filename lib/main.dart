@@ -4,6 +4,7 @@ import 'home.dart';
 import 'dart:async';
 import 'package:demo_1/backend/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import './screens/home_screen.dart';
 
 void main() => runApp(new MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -16,6 +17,7 @@ void main() => runApp(new MaterialApp(
     '/Splash' : (BuildContext context) => new Splash(),
     '/Home': (BuildContext context) => new Home(),
     '/SignIn': (BuildContext context) => new SignIn(),
+    '/GameHome': (BuildContext context) => new GameHome(),
   },
 ));
 
