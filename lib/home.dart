@@ -71,6 +71,22 @@ class HomeState extends State<Home> {
                 height: 50.0,
                 width: 220.0,
                 child: RaisedButton(
+                  onPressed: () => Navigator
+                      .of(context)
+                      .pushNamedAndRemoveUntil(
+                      '/ComingSoon', (Route<dynamic> route) => false),
+                  color: Colors.blue,
+                  child: Text('Coming Soon',
+                      style: TextStyle(color: Colors.white, fontSize: 18.0)),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(20.0),
+              ),
+              Container(
+                height: 50.0,
+                width: 220.0,
+                child: RaisedButton(
                   onPressed: _signOut,
                   color: Colors.blue,
                   child: Text('Sign Out',
