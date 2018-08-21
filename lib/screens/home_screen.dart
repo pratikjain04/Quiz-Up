@@ -46,21 +46,25 @@ class GameHomeState extends State<GameHome> with SingleTickerProviderStateMixin{
            children: <Widget>[
              Padding(padding: EdgeInsets.only(top: 50.0),),
              Container(
-               height: 250.0,
-               width: 500.0,
+               height: 188.0,
+               width: 350.0,
                decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(15.0),
                  border: Border.all(color: Colors.white),
                  gradient: LinearGradient(colors: <Color>[
                    Colors.black45,
                    Colors.black54
                  ])
                ),
-              child: Text('Questions will be\n put here',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: (animation.value*14),
-                ),),
+              child: Center(
+                child: Text('Questions will be\n'
+                    '\r\r\r\r\r\rput here',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: (animation.value*25),
+                      fontFamily: 'Raleway'
+                  ),),
+              ),
              ),
            ],
          )
