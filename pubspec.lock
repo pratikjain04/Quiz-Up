@@ -84,7 +84,7 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.18"
+    version: "0.5.19"
   firebase_core:
     dependency: transitive
     description:
@@ -122,7 +122,7 @@ packages:
       name: google_sign_in
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.4"
+    version: "3.0.5"
   html:
     dependency: transitive
     description:

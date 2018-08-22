@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-void onPressed(){       //Just to make tapping work.
-  print('Pressed');
-}
-
 class ComingSoon extends StatefulWidget {
   @override
   ComingSoonState createState() => new ComingSoonState();
@@ -28,8 +23,8 @@ class ComingSoonState extends State<ComingSoon> {
         ),
         backgroundColor: Colors.black87,
         actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.search, color: Colors.white,), onPressed: (){onPressed();}),
-          new IconButton(icon: new Icon(Icons.more_vert, color: Colors.white), onPressed: (){onPressed();}),
+          new IconButton(icon: new Icon(Icons.search, color: Colors.white,), onPressed: (){}),
+          new IconButton(icon: new Icon(Icons.more_vert, color: Colors.white), onPressed: (){}),
         ],
 
 

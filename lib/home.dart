@@ -37,10 +37,7 @@ class HomeState extends State<Home> {
                 height: 50.0,
                 width: 220.0,
                 child: RaisedButton(
-                  onPressed: () => Navigator
-                      .of(context)
-                      .pushNamedAndRemoveUntil(
-                          '/GameHome', (Route<dynamic> route) => false),
+                  onPressed: () => Navigator.of(context).pushNamed('/GameHome'),
                   color: Colors.blue,
                   child: Text('Normal Mode',
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
@@ -55,10 +52,7 @@ class HomeState extends State<Home> {
                 // CURRENTLY BOTH THE PAGES ARE REDIRECTING TO THE SAME PAGE, WILL CHANGE THIS AFTERWARDS
                 //Todo:
                 child: RaisedButton(
-                  onPressed: () => Navigator
-                      .of(context)
-                      .pushNamedAndRemoveUntil(
-                      '/GameHome', (Route<dynamic> route) => false),
+                  onPressed: () => Navigator.of(context).pushNamed('/GameHome'),
                   color: Colors.blue,
                   child: Text('GRE Mode',
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
@@ -71,10 +65,7 @@ class HomeState extends State<Home> {
                 height: 50.0,
                 width: 220.0,
                 child: RaisedButton(
-                  onPressed: () => Navigator
-                      .of(context)
-                      .pushNamedAndRemoveUntil(
-                      '/ComingSoon', (Route<dynamic> route) => false),
+                  onPressed: () => Navigator.of(context).pushNamed('/ComingSoon'),
                   color: Colors.blue,
                   child: Text('Coming Soon',
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),

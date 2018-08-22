@@ -5,11 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class SignIn extends StatefulWidget {
-
   @override
   SignInState createState() => SignInState();
 }
-
 
 class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
 
@@ -25,7 +23,6 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
     controller.addListener(() => setState(() {}));
     controller.forward();
   }
-
 
   @override
   void dispose()
@@ -118,7 +115,6 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
       ]),
     );  }
 }
-
 
 class SignInClipper extends CustomClipper<Path> {
   @override

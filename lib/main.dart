@@ -15,14 +15,12 @@ void main() => runApp(new MaterialApp(
   ),
   home: new Splash(),
   routes: <String, WidgetBuilder>{
-    '/Splash' : (BuildContext context) => new Splash(),
     '/Home': (BuildContext context) => new Home(),
     '/SignIn': (BuildContext context) => new SignIn(),
     '/GameHome': (BuildContext context) => new GameHome(),
     '/ComingSoon': (BuildContext context) => new ComingSoon()
   },
 ));
-
 
 class Splash extends StatefulWidget {
   @override
