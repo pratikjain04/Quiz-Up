@@ -38,7 +38,7 @@ class _SplashState extends State<Splash> {
       if(user != null)
         Timer(Duration(milliseconds: 3200), () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false));
       else
-        Timer(Duration(milliseconds: 3200), () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false ));
+        Timer(Duration(milliseconds: 3200), () => Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false ));
     });
   }
 
