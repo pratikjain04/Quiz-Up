@@ -15,8 +15,7 @@ class HomeState extends State<Home> {
     _auth.signOut().whenComplete(() {
       googleSignIn.signOut();
     });
-    Navigator
-        .of(context)
+    Navigator.of(context)
         .pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false);
   }
 

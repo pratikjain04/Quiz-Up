@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+
 class SignIn extends StatefulWidget {
   @override
   SignInState createState() => SignInState();
@@ -19,7 +20,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
     super.initState();
     controller = AnimationController(duration: Duration(milliseconds: 2300),vsync: this);
     animation =  CurvedAnimation(parent: controller, curve: Curves.decelerate);
-
+    
     controller.addListener(() => setState(() {}));
     controller.forward();
   }

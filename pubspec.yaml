@@ -36,11 +36,9 @@ flutter:
   - images/bluebrickwall.jpg
   - images/darkthemeblue.jpg
   - images/smiley.png
-
-  #  - images/a_dot_ham.jpeg
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.io/assets-and-images/#resolution-aware.
+  - images/mars.png
+  - images/moon.png
+  - images/neptune.png
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.io/assets-and-images/#from-packages
@@ -56,6 +54,13 @@ flutter:
     - asset: fonts/Raleway-Regular.ttf
     - asset: fonts/Raleway-Italic.ttf
       style: italic
+  - family: Poppins
+    fonts:
+    - asset: fonts/Poppins-SemiBold.ttf
+      weight: 600
+    - asset: fonts/Poppins-Regular.ttf
+      weight: 400
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

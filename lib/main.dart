@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'theme_color.dart';
-import 'home.dart';
+import 'home.dart';  //to be imported and integrated later
 import 'dart:async';
 import 'package:demo_1/backend/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'screens/game_screen.dart';
 import 'screens/comingsoon.dart';
+import 'ui/home/home_page.dart';
 
 void main() => runApp(new MaterialApp(
   debugShowCheckedModeBanner: false,
