@@ -16,7 +16,7 @@ void main() => runApp(new MaterialApp(
   ),
   home: new Splash(),
   routes: <String, WidgetBuilder>{
-    '/Home': (BuildContext context) => new Home(),
+    '/Home': (BuildContext context) => new HomePage(),
     '/SignIn': (BuildContext context) => new SignIn(),
     '/GameHome': (BuildContext context) => new GameHome(),
     '/ComingSoon': (BuildContext context) => new ComingSoon()

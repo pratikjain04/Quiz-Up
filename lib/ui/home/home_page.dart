@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:demo_1/ui/home/home_page_body.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
-
 
 //Todo: Add Buttons, and Functionality in each
 //Todo: Add Modal for Profile Page, 3rd Card , and render a new page for the other two
@@ -26,7 +23,7 @@ class HomePageState extends State<HomePage> {
     _auth.signOut().whenComplete(() {
       googleSignIn.signOut();
     });
-  //  Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false);
+    Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false);
   }
 
   @override
