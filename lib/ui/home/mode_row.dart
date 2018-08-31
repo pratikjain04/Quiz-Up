@@ -57,6 +57,8 @@ class ModeRow extends StatelessWidget {
             color: new Color(0xff00c6ff)
           ),
               RaisedButton(
+                shape: RoundedRectangleBorder(
+                   borderRadius: BorderRadius.circular(10.0)),
                 elevation: 40.0,
                 color: Colors.lightBlueAccent,
                 splashColor: Colors.blue[600],
@@ -97,7 +99,6 @@ class ModeRow extends StatelessWidget {
         children: <Widget>[
           modeCard,
           modeThumbnail,
-
         ],
       )
     );
