@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'theme_color.dart';
-import 'home.dart';  //to be imported and integrated later
 import 'dart:async';
 import 'package:demo_1/backend/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
