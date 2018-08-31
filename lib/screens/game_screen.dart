@@ -129,6 +129,18 @@ class GameHomeState extends State<GameHome> with SingleTickerProviderStateMixin{
                 ),
               )
             ),
+            Padding(padding: EdgeInsets.only(top: 15.0)),
+            Container(
+              height: 40.0,
+              width: 120.0,
+              child: RaisedButton(
+                color: Colors.deepPurpleAccent,
+                child: Text('Exit', style: TextStyle(color: Colors.white, fontSize: 22.0),),
+                  onPressed: (){
+                Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false);
+                }
+              ),
+            )
            ]
           ),
         ]

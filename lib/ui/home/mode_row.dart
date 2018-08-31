@@ -4,8 +4,9 @@ import 'package:demo_1/model/modes.dart';
 class ModeRow extends StatelessWidget {
 
   final Mode mode;
+  final VoidCallback onPressed;
 
-  ModeRow(this.mode);
+  ModeRow(this.mode, {this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +56,14 @@ class ModeRow extends StatelessWidget {
             width: 18.0,
             color: new Color(0xff00c6ff)
           ),
+              RaisedButton(
+                elevation: 40.0,
+                color: Colors.lightBlueAccent,
+                splashColor: Colors.blue[600],
+                child: Center(
+                    child: Text('Play', style: TextStyle(color: Colors.white, fontSize: 22.0),)),
+                onPressed: onPressed
+                ),
         ],
       ),
     );
@@ -88,6 +97,7 @@ class ModeRow extends StatelessWidget {
         children: <Widget>[
           modeCard,
           modeThumbnail,
+
         ],
       )
     );

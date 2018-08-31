@@ -9,9 +9,16 @@ class HomePageBody extends StatelessWidget {
       child: new ListView(
         shrinkWrap: true,
         children: <Widget>[
-          SizedBox(child: new ModeRow(Modes[0]), height: 200.0),
-          SizedBox(child: new ModeRow(Modes[1]), height: 200.0,),
-          SizedBox(child: new ModeRow(Modes[2]), height: 200.0,),
+          SizedBox(child: new ModeRow(Modes[0], onPressed: () {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                '/GameHome', (Route<dynamic> route) => false);
+            }
+          ), height: 200.0),
+          SizedBox(child: new ModeRow(Modes[1], onPressed: () {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                '/GameHome', (Route<dynamic> route) => false);
+          }), height: 215.0,),
+          SizedBox(child: new ModeRow(Modes[2], onPressed: (){},), height: 200.0,),
         ],
       ),
     );
