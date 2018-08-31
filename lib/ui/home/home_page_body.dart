@@ -18,9 +18,6 @@ class HomePageBody extends StatelessWidget {
             Navigator.of(context).pushNamedAndRemoveUntil(
                 '/GameHome', (Route<dynamic> route) => false);
           }), height: 215.0,),
-          SizedBox(child: new ModeRow(Modes[2], onPressed: (){
-            Navigator.of(context).pushNamed('/ComingSoon');
-          },), height: 200.0,),
         ],
       ),
     );

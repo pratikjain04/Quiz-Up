@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'screens/game_screen.dart';
 import 'screens/comingsoon.dart';
 import 'ui/home/home_page.dart';
+import 'demo/load_two_panel.dart';
 
 void main() => runApp(new MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -15,7 +16,7 @@ void main() => runApp(new MaterialApp(
   ),
   home: new Splash(),
   routes: <String, WidgetBuilder>{
-    '/Home': (BuildContext context) => new HomePage(),
+    '/Home': (BuildContext context) => new BackDrop(),
     '/SignIn': (BuildContext context) => new SignIn(),
     '/GameHome': (BuildContext context) => new GameHome(),
     '/ComingSoon': (BuildContext context) => new ComingSoon()
