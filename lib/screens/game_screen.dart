@@ -9,7 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class GameHome extends StatefulWidget {
 
   @override
-  GameHomeState createState()=> GameHomeState();
+  GameHomeState createState() => GameHomeState();
 }
 
 class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
