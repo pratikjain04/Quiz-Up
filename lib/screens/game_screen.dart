@@ -50,6 +50,7 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
           });
         }
       }
+
       documentReference = Firestore.instance.document("questions/FirstQuestion/options/allOptions");
       documentReference.get().then((datasnap){
         if(datasnap.exists){
@@ -59,6 +60,8 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
           c_options[0].forward();
         }
       });
+
+
       for(int i = 1; i < 5; i++)
         _color.add(Colors.blue);
       c_loading = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
