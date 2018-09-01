@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:demo_1/ui/home/home_page.dart';
 
-
 class TwoPanels extends StatefulWidget{
 
   final AnimationController controller;
@@ -12,7 +11,6 @@ class TwoPanels extends StatefulWidget{
 }
 
 class _TwoPanelsState extends State<TwoPanels> {
-
 
   static const header_height = 52.0;
   //For Sliding Effect
@@ -31,40 +29,35 @@ class _TwoPanelsState extends State<TwoPanels> {
   }
 
   Widget bothPanels(BuildContext context, BoxConstraints constraints) {
-    final ThemeData theme = Theme.of(context);
-
-      return Container(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              color: Colors.black54.withOpacity(0.75),
-              child: Center(
-                child: Text('Profile', style: TextStyle(fontSize: 24.0, color: Colors.white)),
-              ),
+    return Container(
+      child: Stack(
+        children: <Widget>[
+          Container(
+          color: Colors.black54.withOpacity(0.75),
+          child: Center(
+              child: Text('Profile', style: TextStyle(fontSize: 24.0, color: Colors.white)),
             ),
-            PositionedTransition(
-              rect: getPanelAnimation(constraints),
-              child: Material(
-                elevation: 12.0,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(36.0),
-                  topRight: Radius.circular(36.0),
-                ),
-
-                //Front Panel Starts Here
-                child: new HomePage()
+          ),
+          PositionedTransition(
+            rect: getPanelAnimation(constraints),
+            child: Material(
+              elevation: 12.0,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(36.0),
+                topRight: Radius.circular(36.0),
               ),
-            )
-          ],
-        ),
-      );
-    }
+              //Front Panel Starts Here
+              child: new HomePage()
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
-
-    @override
+  @override
   Widget build(BuildContext context) {
-
     return LayoutBuilder(builder: bothPanels);
   }
-  }
+}
 
