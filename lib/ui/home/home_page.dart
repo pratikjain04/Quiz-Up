@@ -47,17 +47,8 @@ class HomePageState extends State<HomePage> {
                             color: Colors.white,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
-                            fontSize: 36.0),),
-
-                    Padding(padding: EdgeInsets.only(left: 70.0)),
-                    IconButton(
-                      icon: Icon(
-                      Icons.exit_to_app,
-                      color: Colors.white,
-                      size: 36.0,
-                    ),
-                     onPressed: _signOut
-                   )
+                            fontSize: 36.0),
+                       ),
                   ],
                 ),
               ),

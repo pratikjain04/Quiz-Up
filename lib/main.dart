@@ -5,8 +5,7 @@ import 'package:demo_1/backend/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'screens/game_screen.dart';
 import 'screens/comingsoon.dart';
-import 'ui/home/home_page.dart';
-import 'demo/load_two_panel.dart';
+import 'backdrop_home//load_two_panel.dart';
 
 void main() => runApp(new MaterialApp(
   debugShowCheckedModeBanner: false,

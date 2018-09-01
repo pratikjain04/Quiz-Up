@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../ui/home/home_page.dart';
-
+import 'package:demo_1/ui/home/home_page.dart';
 
 
 class TwoPanels extends StatefulWidget{
@@ -13,6 +12,7 @@ class TwoPanels extends StatefulWidget{
 }
 
 class _TwoPanelsState extends State<TwoPanels> {
+
 
   static const header_height = 52.0;
   //For Sliding Effect
@@ -47,12 +47,11 @@ class _TwoPanelsState extends State<TwoPanels> {
               child: Material(
                 elevation: 12.0,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(46.0),
-                  topRight: Radius.circular(46.0),
+                  topLeft: Radius.circular(36.0),
+                  topRight: Radius.circular(36.0),
                 ),
 
                 //Front Panel Starts Here
-
                 child: new HomePage()
               ),
             )
