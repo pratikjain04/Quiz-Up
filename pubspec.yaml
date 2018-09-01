@@ -32,7 +32,7 @@ flutter:
   assets:
   - images/whitegooglelogo.png
   - images/whiteloader.gif
-  - images/bluebrickwall.jpg
+  - images/profile_background.jpg
   - images/darkthemeblue.jpg
   - images/smiley.png
   - images/mars.png
