@@ -36,13 +36,12 @@ class HomePageState extends State<HomePage> {
         child: new Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 25.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: Container(
                 child: Row(
-
                   children: <Widget>[
-                    Padding(padding: EdgeInsets.only(left: 100.0),),
-                       Text('Quiz-Up',
+                   Padding(padding: EdgeInsets.only(left: 70.0),),
+                       Text('Game Modes',
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'Poppins',

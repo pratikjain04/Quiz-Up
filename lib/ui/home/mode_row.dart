@@ -56,6 +56,7 @@ class ModeRow extends StatelessWidget {
             width: 18.0,
             color: new Color(0xff00c6ff)
           ),
+              Padding(padding: EdgeInsets.only(top: 25.0),),
               RaisedButton(
                 shape: RoundedRectangleBorder(
                    borderRadius: BorderRadius.circular(10.0)),
