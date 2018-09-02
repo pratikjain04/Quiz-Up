@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'theme_color.dart';
 import 'dart:async';
 import 'package:demo_1/backend/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,10 +8,7 @@ import 'backdrop_home//load_two_panel.dart';
 
 void main() => runApp(new MaterialApp(
   debugShowCheckedModeBanner: false,
-  theme: ThemeData(
-    primaryColor: primaryColor,
-    accentColor: accentColor,
-  ),
+
   home: new Splash(),
   routes: <String, WidgetBuilder>{
     '/Home': (BuildContext context) => new BackDrop(),

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:demo_1/theme_color.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -20,7 +19,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
     super.initState();
     controller = AnimationController(duration: Duration(milliseconds: 2300),vsync: this);
     animation =  CurvedAnimation(parent: controller, curve: Curves.decelerate);
-    
+
     controller.addListener(() => setState(() {}));
     controller.forward();
   }
@@ -90,7 +89,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
                         borderRadius: BorderRadius.circular(20.0)),
                     elevation: 30.0,
                     onPressed: () => _signIn().catchError((e) => print(e)),
-                    color: googleSignInColor,
+                    color: Color(0xFFFF000F),
                     child: Row(
                       children: <Widget>[
                         Image(
