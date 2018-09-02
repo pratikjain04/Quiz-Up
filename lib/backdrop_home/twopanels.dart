@@ -1,3 +1,4 @@
+import 'package:demo_1/ui/home/home_page_body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:demo_1/ui/home/home_page.dart';
@@ -16,6 +17,23 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
   static const header_height = 52.0;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  double startDragY = 0.0;
+  double dragY = 0.0;
+
+  void _onPanStart(DragStartDetails details){
+    startDragY = details.globalPosition.dy;
+  }
+
+  void _onPanUpdate(DragUpdateDetails details) {
+    setState(() {
+      dragY = startDragY - details.globalPosition.dy;
+    });
+  }
+
+  void _onPanEnd(DragEndDetails details) {
+    startDragY = null;
+  }
 
   void _signOut() async {
     _auth.signOut().whenComplete(() {
@@ -50,7 +68,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
   Animation<RelativeRect> getPanelAnimation(BoxConstraints constraints, double padding){
   //BoxConstraints for taking the complete space of its parent widget
 
-    final height = constraints.biggest.height;
+    final height = constraints.biggest.height - dragY;
     final backPanelHeight = height - header_height - padding;
     final frontPanelHeight = -header_height;
 
@@ -187,7 +205,44 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                   topRight: Radius.circular(36.0),
                 ),
                 //Front Panel Starts Here
-                child: new HomePage()
+                child: Scaffold(
+                  body: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.lightBlueAccent,
+                        gradient: LinearGradient(colors: <Color>[
+                          Colors.lightBlueAccent,
+                          Colors.lightBlue[400],
+                          Colors.blue[600],
+                        ])),
+                    child: new Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: GestureDetector(
+                            onPanStart: _onPanStart,
+                            onPanUpdate: _onPanUpdate,
+                            onPanEnd: _onPanEnd,
+                            child: Container(
+                              child: Row(
+                                children: <Widget>[
+                                  Padding(padding: EdgeInsets.only(left: 70.0),),
+                                  Text('Game Modes',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 36.0),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        new HomePageBody(),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           )

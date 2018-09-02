@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:demo_1/ui/home/home_page_body.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatefulWidget{
+
+  ValueSetter<double> func;
+
+  HomePage({this.func});
 
   @override
   HomePageState createState() => HomePageState();
@@ -11,15 +13,21 @@ class HomePage extends StatefulWidget{
 
 
 class HomePageState extends State<HomePage> {
+  double startDragY;
+  double dragY;
 
-  final GoogleSignIn googleSignIn = new GoogleSignIn();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  void _onPanStart(DragStartDetails details){
+    startDragY = details.globalPosition.dy;
+  }
 
-  void _signOut() async {
-    _auth.signOut().whenComplete(() {
-      googleSignIn.signOut();
+  void _onPanUpdate(DragUpdateDetails details) {
+    setState(() {
+      dragY = startDragY - details.globalPosition.dy;
     });
-    Navigator.of(context).pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false);
+  }
+
+  void _onPanEnd(DragEndDetails details) {
+    startDragY = null;
   }
 
   @override
@@ -37,18 +45,23 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
-              child: Container(
-                child: Row(
-                  children: <Widget>[
-                   Padding(padding: EdgeInsets.only(left: 70.0),),
-                       Text('Game Modes',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                            fontSize: 36.0),
-                       ),
-                  ],
+              child: GestureDetector(
+                onPanStart: _onPanStart,
+                onPanUpdate: _onPanUpdate,
+                onPanEnd: _onPanEnd,
+                child: Container(
+                  child: Row(
+                    children: <Widget>[
+                     Padding(padding: EdgeInsets.only(left: 70.0),),
+                         Text('Game Modes',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 36.0),
+                         ),
+                    ],
+                  ),
                 ),
               ),
             ),
