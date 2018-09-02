@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
-import 'theme_color.dart';
 import 'dart:async';
 import 'package:demo_1/backend/SignIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'screens/game_screen.dart';
 import 'screens/comingsoon.dart';
 import 'backdrop_home//load_two_panel.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(new MaterialApp(
-  debugShowCheckedModeBanner: false,
-  theme: ThemeData(
-    primaryColor: primaryColor,
-    accentColor: accentColor,
-  ),
-  home: new Splash(),
-  routes: <String, WidgetBuilder>{
-    '/Home': (BuildContext context) => new BackDrop(),
-    '/SignIn': (BuildContext context) => new SignIn(),
-    '/GameHome': (BuildContext context) => new GameHome(),
-    '/ComingSoon': (BuildContext context) => new ComingSoon()
-  },
-));
+void main() {
+
+ SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).whenComplete((){
+   runApp(new MaterialApp(
+     debugShowCheckedModeBanner: false,
+
+     home: new Splash(),
+     routes: <String, WidgetBuilder>{
+       '/Home': (BuildContext context) => new BackDrop(),
+       '/SignIn': (BuildContext context) => new SignIn(),
+       '/GameHome': (BuildContext context) => new GameHome(),
+       '/ComingSoon': (BuildContext context) => new ComingSoon()
+     },
+   ));
+ });
+}
 
 class Splash extends StatefulWidget {
   @override

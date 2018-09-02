@@ -1,7 +1,6 @@
 import 'package:demo_1/ui/home/home_page_body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:demo_1/ui/home/home_page.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class TwoPanels extends StatefulWidget{
@@ -26,13 +25,19 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
   }
 
   void _onPanUpdate(DragUpdateDetails details) {
-    setState(() {
+    setState((){
       dragY = startDragY - details.globalPosition.dy;
+      controller.fling(velocity: (dragY < 0.0) ? -1.0 : 1.0);
+      print(dragY);
     });
   }
 
   void _onPanEnd(DragEndDetails details) {
-    startDragY = null;
+    setState(() {
+      if(dragY < 0.0)
+        dragY = 0.0;
+    });
+    startDragY = 0.0;
   }
 
   void _signOut() async {
@@ -68,7 +73,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
   Animation<RelativeRect> getPanelAnimation(BoxConstraints constraints, double padding){
   //BoxConstraints for taking the complete space of its parent widget
 
-    final height = constraints.biggest.height - dragY;
+    double height = (dragY >= padding) ? constraints.biggest.height - dragY : constraints.biggest.height;
     final backPanelHeight = height - header_height - padding;
     final frontPanelHeight = -header_height;
 
@@ -79,6 +84,10 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
   }
 
   Widget bothPanels(BuildContext context, BoxConstraints constraints) {
+
+    double uni_height = MediaQuery.of(context).size.height;
+    double uni_width = MediaQuery.of(context).size.width;
+
     return Stack(
         children: <Widget>[
           Column(
@@ -89,7 +98,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
           ),
           Container(
             child: Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: EdgeInsets.only(top: uni_height/32),
                 child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -103,17 +112,17 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                         color: Colors.white,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 130.0),
+                        padding: EdgeInsets.only(left: uni_width/3.1),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 15.0),
+                        padding: EdgeInsets.only(top: uni_height/42.66667),
                         child: Text(
                           'Profile',
                           style: TextStyle(color: Colors.white, fontSize: 18.0),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 108.0, top: 20.0),
+                        padding: EdgeInsets.only(left: uni_width/3.8, top: uni_height/32),
                       ),
                       IconButton(
                         icon: Icon(Icons.exit_to_app),
@@ -123,17 +132,18 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                     ])),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200.0, left: 25.0),
+            padding: EdgeInsets.only(top: uni_height/3.2, left: uni_width/95),
             child: Container(
-              height: 350.0,
-              width: 350.0,
+              height: uni_height/1.828,
+              width: uni_width/1.0285,
               child: Card(
                 color: Colors.white,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 48.0),
+                  padding: EdgeInsets.only(top: 48.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
+                      //todo: fetch details from Firebase
                       Text('Pratik Jain', style: TextStyle(fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.bold),),
                       Padding(padding: EdgeInsets.only(top: 3.0)),
                       Text(
@@ -148,7 +158,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                         children: <Widget>[
                           Padding(padding: EdgeInsets.only(left: 40.0)),
                           Padding(
-                            padding: const EdgeInsets.only(top: 6.0),
+                            padding: EdgeInsets.only(top: 6.0),
                             child: Text('120', style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),),
                           ),
                           Padding(padding: EdgeInsets.only(left: 140.0)),
@@ -182,7 +192,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 150.0, top: 135.0),
+            padding: EdgeInsets.only(left: uni_width/2.61, top: uni_height/4.5),
             child: ClipOval(
               child: Container(
                 height: 92.0,
@@ -195,9 +205,9 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
             ),
           ),
           PositionedTransition(
-            rect: getPanelAnimation(constraints, 70.0),
+            rect: getPanelAnimation(constraints, uni_height/9.14),
             child: Padding(
-              padding: const EdgeInsets.only(top: 70.0),
+              padding: EdgeInsets.only(top: uni_height/9.14),    //top: 70
               child: Material(
                 elevation: 12.0,
                 borderRadius: BorderRadius.only(
@@ -217,7 +227,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                     child: new Column(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(top: 10.0),
+                          padding: EdgeInsets.only(top: uni_height / 64.0),
                           child: GestureDetector(
                             onPanStart: _onPanStart,
                             onPanUpdate: _onPanUpdate,
@@ -225,7 +235,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                             child: Container(
                               child: Row(
                                 children: <Widget>[
-                                  Padding(padding: EdgeInsets.only(left: 70.0),),
+                                  Padding(padding: EdgeInsets.only(left: uni_width / 5.14),),
                                   Text('Game Modes',
                                     style: TextStyle(
                                         color: Colors.white,

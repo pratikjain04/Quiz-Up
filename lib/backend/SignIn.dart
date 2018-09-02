@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:demo_1/theme_color.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -20,7 +19,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
     super.initState();
     controller = AnimationController(duration: Duration(milliseconds: 2300),vsync: this);
     animation =  CurvedAnimation(parent: controller, curve: Curves.decelerate);
-    
+
     controller.addListener(() => setState(() {}));
     controller.forward();
   }
@@ -46,6 +45,10 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
+
+    double uni_height = MediaQuery.of(context).size.height;
+    double uni_width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
         ClipPath(
@@ -64,7 +67,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
         Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 100.0),
+              padding: EdgeInsets.only(top: uni_height/2 - 200.0),
             ),
             FlutterLogo(
               size: (animation.value * 90),
@@ -77,8 +80,6 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
                   fontSize: 50.0,
                   fontWeight: FontWeight.bold),
             ),
-
-
             Padding(
               padding: EdgeInsets.only(top: 80.0),
               child: Center(
@@ -90,7 +91,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
                         borderRadius: BorderRadius.circular(20.0)),
                     elevation: 30.0,
                     onPressed: () => _signIn().catchError((e) => print(e)),
-                    color: googleSignInColor,
+                    color: Color(0xFFFF000F),
                     child: Row(
                       children: <Widget>[
                         Image(
@@ -118,12 +119,14 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
 }
 
 class SignInClipper extends CustomClipper<Path> {
+
+
   @override
   Path getClip(Size size) {
     var path = new Path();
     path.moveTo(0.0, size.height);
-    path.lineTo(0.0, size.height - 150.0);
-    path.lineTo(size.width, size.height - 510.0);
+    path.lineTo(0.0, size.height - size.height/6);
+    path.lineTo(size.width, size.height - size.height/1.271);
     path.lineTo(size.width, size.height);
     path.close();
     return path;
