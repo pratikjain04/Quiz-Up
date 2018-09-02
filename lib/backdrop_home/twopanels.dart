@@ -61,6 +61,10 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
   }
 
   Widget bothPanels(BuildContext context, BoxConstraints constraints) {
+
+    double uni_height = MediaQuery.of(context).size.height;
+    double uni_width = MediaQuery.of(context).size.width;
+
     return Stack(
         children: <Widget>[
           Column(
@@ -71,7 +75,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
           ),
           Container(
             child: Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: EdgeInsets.only(top: uni_height/32),
                 child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -85,17 +89,17 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                         color: Colors.white,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 130.0),
+                        padding: EdgeInsets.only(left: uni_width/3.1),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 15.0),
+                        padding: EdgeInsets.only(top: uni_height/42.66667),
                         child: Text(
                           'Profile',
                           style: TextStyle(color: Colors.white, fontSize: 18.0),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 108.0, top: 20.0),
+                        padding: EdgeInsets.only(left: uni_width/3.8, top: uni_height/32),
                       ),
                       IconButton(
                         icon: Icon(Icons.exit_to_app),
@@ -105,17 +109,18 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                     ])),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200.0, left: 25.0),
+            padding: EdgeInsets.only(top: uni_height/3.2, left: uni_width/95),
             child: Container(
-              height: 350.0,
-              width: 350.0,
+              height: uni_height/1.828,
+              width: uni_width/1.0285,
               child: Card(
                 color: Colors.white,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 48.0),
+                  padding: EdgeInsets.only(top: 48.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
+                      //todo: fetch details from Firebase
                       Text('Pratik Jain', style: TextStyle(fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.bold),),
                       Padding(padding: EdgeInsets.only(top: 3.0)),
                       Text(
@@ -130,7 +135,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                         children: <Widget>[
                           Padding(padding: EdgeInsets.only(left: 40.0)),
                           Padding(
-                            padding: const EdgeInsets.only(top: 6.0),
+                            padding: EdgeInsets.only(top: 6.0),
                             child: Text('120', style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),),
                           ),
                           Padding(padding: EdgeInsets.only(left: 140.0)),
@@ -164,7 +169,7 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 150.0, top: 135.0),
+            padding: EdgeInsets.only(left: uni_width/2.61, top: uni_height/4.74),
             child: ClipOval(
               child: Container(
                 height: 92.0,
@@ -177,9 +182,9 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
             ),
           ),
           PositionedTransition(
-            rect: getPanelAnimation(constraints, 70.0),
+            rect: getPanelAnimation(constraints, uni_height/9.14),
             child: Padding(
-              padding: const EdgeInsets.only(top: 70.0),
+              padding: EdgeInsets.only(top: uni_height/9.14),    //top: 70
               child: Material(
                 elevation: 12.0,
                 borderRadius: BorderRadius.only(
