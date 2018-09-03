@@ -33,10 +33,6 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
   }
 
   void _onPanEnd(DragEndDetails details) {
-    setState(() {
-      if(dragY < 0.0)
-        dragY = 0.0;
-    });
     startDragY = 0.0;
   }
 
@@ -107,6 +103,10 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                             icon: AnimatedIcons.home_menu,
                             progress: controller.view),
                         onPressed: () {
+                          setState((){
+                            if(dragY > 0.0)
+                              dragY = 0.0;
+                          });
                           controller.fling(velocity: isPanelVisible ? -1.0 : 1.0);
                         },
                         color: Colors.white,
