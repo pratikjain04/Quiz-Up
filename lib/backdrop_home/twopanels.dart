@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:demo_1/ui/home/home_page_body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -116,9 +118,25 @@ class _TwoPanelsState extends State<TwoPanels> with SingleTickerProviderStateMix
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: uni_height/42.66667),
-                        child: Text(
-                          'Profile',
-                          style: TextStyle(color: Colors.white, fontSize: 18.0),
+                        child: Stack(
+                          children: <Widget>[
+                            AnimatedOpacity(
+                              opacity: isPanelVisible ? 1.0 : 0.0,
+                              duration: Duration(milliseconds: 500),
+                              child: Text(
+                                'Quiz-Up',
+                                style: TextStyle(color: Colors.white, fontSize: 18.0),
+                              ),
+                            ),
+                            AnimatedOpacity(
+                              opacity: isPanelVisible ? 0.0 : 1.0,
+                              duration: Duration(milliseconds: 500),
+                              child: Text(
+                                'Profile',
+                                style: TextStyle(color: Colors.white, fontSize: 18.0),
+                              ),
+                            )
+                          ]
                         ),
                       ),
                       Padding(

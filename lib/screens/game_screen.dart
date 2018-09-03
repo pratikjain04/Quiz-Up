@@ -14,7 +14,7 @@ class GameHome extends StatefulWidget {
 
 class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
 
-    List<Color> _color = new List();
+    List<Color> _colors = new List();
     AnimationController controller;
     AnimationController c_loading;
     List<AnimationController> c_options = [null, null, null, null];
@@ -63,7 +63,7 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
 
 
       for(int i = 1; i < 5; i++)
-        _color.add(Colors.blue);
+        _colors.add(Colors.brown);
       c_loading = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
       loadinganim = Tween(begin: 0.0, end: 3.0).animate(c_loading);
       c_loading.addListener(()=> setState((){}));
@@ -83,6 +83,14 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
       for(int i = 0; i < 4; i++)
         c_options[i].dispose();
       super.dispose();
+    }
+
+    bool _isChecked() {
+      for(int i = 0; i < 4; i++){
+        if(_colors[i] == Colors.brown[900])
+          return true;
+      }
+      return false;
     }
 
   @override
@@ -164,37 +172,106 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
               ),
               ListView.builder(
                 shrinkWrap: true,
-                itemCount: _color.length,
+                itemCount: _colors.length,
                 itemBuilder: (BuildContext context, int index){
                   return Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(15.0),
                     child: (options[index] != null) ? Opacity(
                       opacity: optionsOpacity[index].value,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: Container(
-                          height: 60.0,
-                          color: _color[index],
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                options[index],
-                                style: TextStyle(
-                                  fontFamily: 'Raleway',
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w600
+                        child: GestureDetector(
+                          onTap: (){
+                            for(int i = 0; i < 4; i++)
+                              _colors[i] = Colors.brown;
+                            _colors[index] = Colors.brown[900];
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              border: Border.all(
+                                width: 3.0,
+                                color: Colors.brown[900]
+                              ),
+                              color: Colors.brown
+                            ),
+                            height: 60.0,
+                            child: Stack(
+                              children: <Widget>[
+                            Container(
+                              height: 60.0,
+                              child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    options[index],
+                                    style: TextStyle(
+                                        fontFamily: 'Raleway',
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.w600
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                                AnimatedOpacity(
+                                opacity: (_colors[index] == Colors.brown[900]) ? 1.0 : 0.0,
+                                duration: Duration(milliseconds: 500),
+                                child: Container(
+                                  height: 60.0,
+                                  child: Material(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    color: _colors[index],
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Text(
+                                          options[index],
+                                          style: TextStyle(
+                                            fontFamily: 'Raleway',
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.white
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                              )
-                            ],
+                              ),
+                            ]
+                            ),
                           ),
                         ),
-                      ),
                     ) : Container(height: 60.0),
                   );
                 },
               ),
-              Padding(padding: EdgeInsets.only(top: 15.0)),
+              Padding(
+                padding: EdgeInsets.only(top: 10.0),
+                child: Container(
+                  height: 40.0,
+                  width: 250.0,
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0)
+                    ),
+                    onPressed: (_isChecked()) ? (){} : null,
+                    color: (_isChecked()) ? Colors.white : null,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Submit',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: (_isChecked()) ? Colors.black : Colors.white
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ),
+              ),
+              Padding(padding: EdgeInsets.only(top: 35.0)),
               Container(
                 height: 40.0,
                 width: 120.0,
