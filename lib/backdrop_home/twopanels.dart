@@ -18,8 +18,21 @@ class _TwoPanelsState extends State<TwoPanels>
   final GoogleSignIn googleSignIn = new GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  FirebaseUser user;
+  String displayName= null;
+  String displayPhoto = null;
+  
   double startDragY = 0.0;
   double dragY = 0.0;
+  
+  
+  Future<FirebaseUser> _getUserData() async{
+    
+    user = await _auth.currentUser();
+    return user;
+  }
+  
+  
 
   void _onPanStart(DragStartDetails details) {
     startDragY = details.globalPosition.dy;
@@ -44,13 +57,23 @@ class _TwoPanelsState extends State<TwoPanels>
     Navigator.of(context)
         .pushNamedAndRemoveUntil('/SignIn', (Route<dynamic> route) => false);
   }
-
+  
   @override
   void initState() {
     super.initState();
     controller =
         AnimationController(duration: Duration(milliseconds: 100), vsync: this);
     controller.fling(velocity: 1.0);
+    
+    _getUserData().then((user) {
+        setState(() {
+          displayName = user.displayName;
+          displayPhoto = user.photoUrl;
+        });
+      }).catchError((e){
+        print(e);
+    });
+
   }
 
   @override
@@ -93,7 +116,11 @@ class _TwoPanelsState extends State<TwoPanels>
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Image(image: AssetImage('images/PROFILE.jpeg')),
+            Image(
+              image: AssetImage('images/PROFILE.jpeg'),
+              colorBlendMode: BlendMode.darken,
+              color: Colors.black54,
+            ),
           ],
         ),
         Container(
@@ -164,8 +191,9 @@ class _TwoPanelsState extends State<TwoPanels>
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     //todo: fetch details from Firebase
+                    displayName == null ? CircularProgressIndicator() :
                     Text(
-                      'Pratik Jain',
+                      displayName,
                       style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.black,
@@ -231,12 +259,7 @@ class _TwoPanelsState extends State<TwoPanels>
             child: Container(
               height: 92.0,
               width: 92.0,
-              child: Image(
-                fit: BoxFit.cover,
-                image: AssetImage(
-                  'images/Pratik.jpeg',
-                ),
-              ),
+              child: _loadImage(),
             ),
           ),
         ),
@@ -304,4 +327,21 @@ class _TwoPanelsState extends State<TwoPanels>
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: bothPanels);
   }
+
+
+  Widget _loadImage(){
+    Image image;
+    try{
+
+      image = Image.network(displayPhoto, fit: BoxFit.cover,);
+      return image;
+    } catch(e){
+      print(e);
+    }
+    return CircularProgressIndicator();
+  }
+
+
 }
+
+
