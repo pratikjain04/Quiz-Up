@@ -33,11 +33,11 @@ flutter:
   - images/whitegooglelogo.png
   - images/whiteloader.gif
   - images/profile_background.jpg
-  - images/darkthemeblue.jpg
   - images/smiley.png
   - images/mars.png
   - images/moon.png
   - images/neptune.png
+  - images/GRE_Background.jpeg
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.io/assets-and-images/#from-packages

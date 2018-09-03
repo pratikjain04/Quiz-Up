@@ -91,7 +91,11 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          Image(image: AssetImage('images/darkthemeblue.jpg'), fit: BoxFit.cover,),
+          Image(image: AssetImage('images/GRE_Background.jpeg'),
+            fit: BoxFit.cover,
+            colorBlendMode: BlendMode.darken,
+            color: Colors.black54,
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
