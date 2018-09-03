@@ -28,8 +28,8 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
     @override
     void initState() {
       super.initState();
-      controller = AnimationController(duration: Duration(milliseconds: 1800),vsync: this);
-      animation =  CurvedAnimation(parent: controller, curve: Curves.bounceIn);
+      controller = AnimationController(duration: Duration(milliseconds: 500),vsync: this);
+      animation =  CurvedAnimation(parent: controller, curve: Curves.linear);
       controller.addListener(() => setState(() {}));
       documentReference.get().then((datasnap){
         if(datasnap.exists){
