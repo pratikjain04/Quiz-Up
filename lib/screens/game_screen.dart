@@ -246,42 +246,43 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                 },
               ),
               Padding(
-                padding: EdgeInsets.only(top: 15.0),
-                child: Container(
-                  height: 40.0,
-                  width: 250.0,
-                  child: RaisedButton(
-                    elevation: 20.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)
-                    ),
-                    onPressed: (_isChecked()) ? (){} : null,
-                    color: (_isChecked()) ? Color(0xFF805550) : null,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Submit',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: (_isChecked()) ? Colors.white : Colors.white
+                padding: EdgeInsets.only(top: 60.0, left: 20.0, right: 20.0),
+                child: Row(
+                  children: <Widget>[
+                    CircleAvatar(
+                      radius: 30.0,
+                        child: Material(
+                          shape: CircleBorder(),
+                          color: Colors.redAccent,
+                          child: Center(
+                            child: IconButton(
+                              icon: Icon(Icons.arrow_back),
+                              color: Colors.white,
+                              iconSize: 30.0,
+                              onPressed: (){
+                                Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false);
+                              },
+                            ),
                           ),
                         )
-                      ],
                     ),
-                  )
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(top: 35.0)),
-              Container(
-                height: 40.0,
-                width: 120.0,
-                child: RaisedButton(
-                  color: Colors.deepPurpleAccent,
-                  child: Text('Exit', style: TextStyle(color: Colors.white, fontSize: 22.0),),
-                    onPressed: (){
-                  Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false);
-                  }
+                    Expanded(child: Container()),
+                    CircleAvatar(
+                      radius: 30.0,
+                      child: Material(
+                        color: (_isChecked()) ? Colors.green : null,
+                        shape: CircleBorder(),
+                        child: Center(
+                          child: IconButton(
+                            icon: Icon(Icons.arrow_forward),
+                            color: Colors.white,
+                            iconSize: 30.0,
+                            onPressed: (_isChecked()) ? (){} : null
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               )
             ]
