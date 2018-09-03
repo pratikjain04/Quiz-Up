@@ -63,7 +63,7 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
 
 
       for(int i = 1; i < 5; i++)
-        _colors.add(Colors.brown);
+        _colors.add(null);
       c_loading = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
       loadinganim = Tween(begin: 0.0, end: 3.0).animate(c_loading);
       c_loading.addListener(()=> setState((){}));
@@ -87,7 +87,7 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
 
     bool _isChecked() {
       for(int i = 0; i < 4; i++){
-        if(_colors[i] == Colors.brown[900])
+        if(_colors[i] == Color(0xFFF9E694))
           return true;
       }
       return false;
@@ -181,17 +181,17 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                         child: GestureDetector(
                           onTap: (){
                             for(int i = 0; i < 4; i++)
-                              _colors[i] = Colors.brown;
-                            _colors[index] = Colors.brown[900];
+                              _colors[i] = Color(0xFFF9E694);
+                            _colors[index] = Colors.amber[700];
                           },
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30.0),
                               border: Border.all(
                                 width: 3.0,
-                                color: Colors.brown[900]
+                                color: Colors.amber[700]
                               ),
-                              color: Colors.brown
+                              color: Color(0xFFF9E694)
                             ),
                             height: 60.0,
                             child: Stack(
@@ -213,7 +213,7 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                               ),
                             ),
                                 AnimatedOpacity(
-                                opacity: (_colors[index] == Colors.brown[900]) ? 1.0 : 0.0,
+                                opacity: (_colors[index] == Colors.amber[700]) ? 1.0 : 0.0,
                                 duration: Duration(milliseconds: 500),
                                 child: Container(
                                   height: 60.0,
@@ -246,16 +246,17 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                 },
               ),
               Padding(
-                padding: EdgeInsets.only(top: 10.0),
+                padding: EdgeInsets.only(top: 15.0),
                 child: Container(
                   height: 40.0,
                   width: 250.0,
                   child: RaisedButton(
+                    elevation: 20.0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0)
                     ),
                     onPressed: (_isChecked()) ? (){} : null,
-                    color: (_isChecked()) ? Colors.white : null,
+                    color: (_isChecked()) ? Color(0xFF805550) : null,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -263,7 +264,7 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                           'Submit',
                           style: TextStyle(
                             fontSize: 20.0,
-                            color: (_isChecked()) ? Colors.black : Colors.white
+                            color: (_isChecked()) ? Colors.white : Colors.white
                           ),
                         )
                       ],
