@@ -32,12 +32,13 @@ flutter:
   assets:
   - images/whitegooglelogo.png
   - images/whiteloader.gif
-  - images/profile_background.jpg
   - images/smiley.png
   - images/mars.png
   - images/moon.png
   - images/neptune.png
   - images/GRE_Background.jpeg
+  - images/PROFILE.jpeg
+  - images/Pratik.jpeg
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.io/assets-and-images/#from-packages
