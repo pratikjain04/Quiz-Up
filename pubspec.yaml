@@ -40,7 +40,9 @@ flutter:
   - images/PROFILE.jpeg
   - images/Pratik.jpeg
   - images/star.png
-  - images/bronze_trophy.jpg
+  - images/trophies/bronze.png
+  - images/trophies/silver.png
+  - images/trophies/gold.png
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.io/assets-and-images/#from-packages

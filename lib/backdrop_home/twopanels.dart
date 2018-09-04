@@ -32,7 +32,8 @@ class _TwoPanelsState extends State<TwoPanels>
     return user;
   }
   
-  
+  //todo: create document for stars in firebase, and render trophies according to the stars fetched from the database
+  //todo: modify the card, the normal and GRE Mode Current level area
 
   void _onPanStart(DragStartDetails details) {
     startDragY = details.globalPosition.dy;
@@ -42,7 +43,7 @@ class _TwoPanelsState extends State<TwoPanels>
     setState(() {
       dragY = startDragY - details.globalPosition.dy;
       controller.fling(velocity: (dragY < 0.0) ? -1.0 : 1.0);
-      print(dragY);
+
     });
   }
 
@@ -230,7 +231,7 @@ class _TwoPanelsState extends State<TwoPanels>
                         Padding(
                           padding: EdgeInsets.only(top: 6.0),
                           child: Text(
-                            '120',
+                            '20',
                             style: TextStyle(
                                 fontSize: 27.0, fontWeight: FontWeight.bold),
                           ),
@@ -242,22 +243,28 @@ class _TwoPanelsState extends State<TwoPanels>
                             height: 40.0,
                             width: 40.0,
                             child: Image(
-                              image: AssetImage('images/bronze_trophy.jpg'),
+                              image: AssetImage('images/trophies/bronze.png'),
                             ),
                           )
                         ),
                       ],
                     ),
                     Expanded(
+
+                      //todo: this needs to be changed!!!
                       child: ListView.builder(
                         itemBuilder: (BuildContext context, int index) {
                           return Row(
                             children: <Widget>[
-                              Text('Normal Icon'),
+                             Container(
+                               height: uni_height/9.14,
+                               width: uni_width/5.14,
+                               color: Colors.red,
+                             ),
                               Padding(
                                 padding: EdgeInsets.only(left: 40.0),
                               ),
-                              Text('Current Level: 20'),
+                              Text('Current Level: 20', style: TextStyle(fontSize: 25.0),),
                             ],
                           );
                         },
