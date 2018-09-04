@@ -169,7 +169,7 @@ class _TwoPanelsState extends State<TwoPanels>
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                          left: uni_width / 3.8, top: uni_height / 32),
+                          left: uni_width / 4.25, top: uni_height / 32),
                     ),
                     IconButton(
                       icon: Icon(Icons.exit_to_app),
@@ -190,7 +190,8 @@ class _TwoPanelsState extends State<TwoPanels>
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    //todo: fetch details from Firebase
+                    //Firebase Integration HERE
+
                     displayName == null ? CircularProgressIndicator() :
                     Text(
                       displayName,
@@ -210,23 +211,40 @@ class _TwoPanelsState extends State<TwoPanels>
                     ),
                     Row(
                       children: <Widget>[
-                        Padding(padding: EdgeInsets.only(left: 40.0)),
+                        Padding(padding: EdgeInsets.only(left: uni_width/18)),  //left: 20
+                        Padding(
+                          padding: EdgeInsets.only(top: 6.0),
+                          child: ClipOval(
+                            child: Container(
+                              color: Colors.white,
+                              height: 40.0,
+                              width: 40.0,
+                              child: Image(
+                                image: AssetImage('images/star.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(padding: EdgeInsets.only(left: uni_width/45),),
                         Padding(
                           padding: EdgeInsets.only(top: 6.0),
                           child: Text(
                             '120',
                             style: TextStyle(
-                                fontSize: 30.0, fontWeight: FontWeight.bold),
+                                fontSize: 27.0, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        Padding(padding: EdgeInsets.only(left: 140.0)),
+                        Padding(padding: EdgeInsets.only(left: uni_width/2.571)),
                         Padding(
                           padding: const EdgeInsets.only(top: 6.0),
-                          child: Text(
-                            'T',
-                            style: TextStyle(
-                                fontSize: 30.0, fontWeight: FontWeight.bold),
-                          ),
+                          child: Container(
+                            height: 40.0,
+                            width: 40.0,
+                            child: Image(
+                              image: AssetImage('images/bronze_trophy.jpg'),
+                            ),
+                          )
                         ),
                       ],
                     ),
