@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 // TODO: Add a timer
 // TODO: Add a submit button
 // TODO: More fleshed out UI
+// Todo: Add Current Level icon in game screen
 
 class GameHome extends StatefulWidget {
 

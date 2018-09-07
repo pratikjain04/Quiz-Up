@@ -34,6 +34,8 @@ class _TwoPanelsState extends State<TwoPanels>
   
   //todo: create document for stars in firebase, and render trophies according to the stars fetched from the database
   //todo: modify the card, the normal and GRE Mode Current level area
+  //TODO: Add Level Selection Page in Between Panel and gAME sCREEN
+
 
   void _onPanStart(DragStartDetails details) {
     startDragY = details.globalPosition.dy;

@@ -7,6 +7,8 @@ import 'screens/comingsoon.dart';
 import 'backdrop_home//load_two_panel.dart';
 import 'package:flutter/services.dart';
 
+
+
 void main() {
 
  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).whenComplete((){
