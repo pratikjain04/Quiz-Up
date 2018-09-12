@@ -130,12 +130,11 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                       height: (loadinganim.value >= 0.0 && loadinganim.value <1.0) ? 20.0 : 10.0,
                       width: (loadinganim.value >= 0.0 && loadinganim.value <1.0)? 20.0 : 10.0,
                       decoration: BoxDecoration(
-                        color: (loadinganim.value >= 0.0 && loadinganim.value < 1.0) ? Colors.blue : null,
+                        color: (loadinganim.value >= 0.0 && loadinganim.value < 1.0) ? Color(0xFFF9E694) : null,
                         shape: BoxShape.circle,
                         border: Border.all(
                           width: 1.0,
-                          color: Colors.blue
-                        )
+                          color: Colors.amber[700],                        )
                       ),
                     ),
                     Padding(
@@ -144,12 +143,11 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                         width: (loadinganim.value > 1.0 && loadinganim.value < 2.0)? 20.0 : 10.0,
                         height: (loadinganim.value > 1.0 && loadinganim.value < 2.0)? 20.0 : 10.0,
                         decoration: BoxDecoration(
-                          color: (loadinganim.value > 1.0 && loadinganim.value < 2.0) ? Colors.blue : null,
+                          color: (loadinganim.value > 1.0 && loadinganim.value < 2.0) ? Color(0xFFF9E694) : null,
                           shape: BoxShape.circle,
                           border: Border.all(
                             width: 1.0,
-                            color: Colors.blue
-                          )
+                            color: Colors.amber[700],                          )
                         ),
                       ),
                     ),
@@ -159,11 +157,11 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                         width: (loadinganim.value > 2.0 && loadinganim.value <= 3.0) ? 20.0 : 10.0,
                         height: (loadinganim.value > 2.0 && loadinganim.value <= 3.0) ? 20.0 : 10.0,
                         decoration: BoxDecoration(
-                          color: (loadinganim.value > 2.0 && loadinganim.value <= 3.0) ? Colors.blue: null,
+                          color: (loadinganim.value > 2.0 && loadinganim.value <= 3.0) ?Color(0xFFF9E694): null,
                             shape: BoxShape.circle,
                             border: Border.all(
                                 width: 1.0,
-                                color: Colors.blue
+                               color: Colors.amber[700],
                             )
                         ),
                       ),
