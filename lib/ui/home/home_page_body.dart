@@ -11,12 +11,12 @@ class HomePageBody extends StatelessWidget {
         children: <Widget>[
           SizedBox(child: new ModeRow(Modes[0], onPressed: () {
             Navigator.of(context).pushNamedAndRemoveUntil(
-                '/GameHome', (Route<dynamic> route) => false);
+                '/Levels', (Route<dynamic> route) => false);
             }
           ), height: 235.0),
           SizedBox(child: new ModeRow(Modes[1], onPressed: () {
             Navigator.of(context).pushNamedAndRemoveUntil(
-                '/GameHome', (Route<dynamic> route) => false);
+                '/Levels', (Route<dynamic> route) => false);
           }), height: 250.0,),
         ],
       ),

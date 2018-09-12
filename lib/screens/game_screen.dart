@@ -261,7 +261,7 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
                               color: Colors.white,
                               iconSize: 30.0,
                               onPressed: (){
-                                Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false);
+                                Navigator.of(context).pushNamedAndRemoveUntil('/Levels', (Route<dynamic> route) => false);
                               },
                             ),
                           ),

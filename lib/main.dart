@@ -6,7 +6,7 @@ import 'screens/game_screen.dart';
 import 'screens/comingsoon.dart';
 import 'backdrop_home//load_two_panel.dart';
 import 'package:flutter/services.dart';
-
+import 'screens/levels_screen.dart';
 
 
 void main() {
@@ -20,7 +20,8 @@ void main() {
        '/Home': (BuildContext context) => new BackDrop(),
        '/SignIn': (BuildContext context) => new SignIn(),
        '/GameHome': (BuildContext context) => new GameHome(),
-       '/ComingSoon': (BuildContext context) => new ComingSoon()
+       '/ComingSoon': (BuildContext context) => new ComingSoon(),
+       '/Levels': (BuildContext context) => new LevelScreen(),
      },
    ));
  });
