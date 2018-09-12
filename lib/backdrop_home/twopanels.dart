@@ -189,7 +189,7 @@ class _TwoPanelsState extends State<TwoPanels>
             child: Card(
               color: Colors.white,
               child: Padding(
-                padding: EdgeInsets.only(top: 48.0),
+                padding: EdgeInsets.only(top: uni_height/13.33),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
@@ -212,10 +212,13 @@ class _TwoPanelsState extends State<TwoPanels>
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    Padding(padding: EdgeInsets.only(top: 4.0)),
+
+                    //INTERNAL CARD
+
+                    Padding(padding: EdgeInsets.only(top: uni_height/160.0)),
                     Container(
-                      height: 130.0,
-                      width: 370.0,
+                      height: uni_height/5.8,
+                      width: uni_width/1.12,
                       child: Card(
                         color: Colors.white70,
                         shape: RoundedRectangleBorder(
@@ -223,17 +226,17 @@ class _TwoPanelsState extends State<TwoPanels>
                         ),
                         elevation: 20.0,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              FlutterLogo(size: 80.0),
+                              FlutterLogo(size: (uni_height*uni_width)/3840.0),
                               Padding(
-                                padding: EdgeInsets.only(left: 4.0, right: 13.0),
+                                padding: EdgeInsets.only(left: uni_width/90, right: uni_width/27.692),
                                 child: ClipOval(
                                   child: Container(
-                                    height: 100.0,
-                                    width: 2.0,
+                                    height: uni_height/6.4,
+                                    width: uni_width/180,
                                     decoration: BoxDecoration(
                                       color: Colors.blue,
                                     ),
@@ -247,11 +250,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                     'Levels',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20.0
+                                      fontSize: uni_width/25
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 10.0),
+                                    padding: EdgeInsets.only(top: uni_height/64),
                                     child: Text(
                                       'X',
                                       style: TextStyle(
@@ -260,23 +263,23 @@ class _TwoPanelsState extends State<TwoPanels>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 10.0),
+                                    padding: EdgeInsets.only(top:  uni_height/64),
                                     child: Text(
                                       '20',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w400,
-                                        fontSize: 20.0
+                                        fontSize: uni_width/25
                                       ),
                                     ),
                                   )
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 13.0, right: 25.0),
+                                padding: EdgeInsets.only(left: uni_width/27.692, right: uni_width/14.4),
                                 child: ClipOval(
                                   child: Container(
-                                    height: 100.0,
-                                    width: 2.0,
+                                    height: uni_height/6.4,
+                                    width: uni_width/180,
                                     decoration: BoxDecoration(
                                       color: Colors.blue,
                                     ),
@@ -288,11 +291,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                 children: <Widget>[
                                   Image(
                                     image: AssetImage('images/star.png'),
-                                    width: 30.0,
-                                    height: 30.0,
+                                    width: uni_width/15,
+                                    height: uni_height/24,
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 10.0),
+                                    padding: EdgeInsets.only(top: uni_height/64),
                                     child: Text(
                                       'X',
                                       style: TextStyle(
@@ -301,23 +304,23 @@ class _TwoPanelsState extends State<TwoPanels>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 10.0),
+                                    padding: EdgeInsets.only(top:uni_height/64),
                                     child: Text(
                                       '20',
                                       style: TextStyle(
                                           fontWeight: FontWeight.w400,
-                                          fontSize: 20.0
+                                          fontSize: uni_width/25
                                       ),
                                     ),
                                   )
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 25.0, right: 8.0),
+                                padding: EdgeInsets.only(left:  uni_width/15, right: uni_width/45),
                                 child: ClipOval(
                                   child: Container(
-                                    height: 100.0,
-                                    width: 2.0,
+                                    height: uni_height/6.4,
+                                    width: uni_width/180,
                                     decoration: BoxDecoration(
                                       color: Colors.blue,
                                     ),
@@ -331,11 +334,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                     'Trophies',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 20.0
+                                        fontSize: uni_width/25
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 10.0),
+                                    padding: EdgeInsets.only(top: uni_height/64),
                                     child: Text(
                                       'X',
                                       style: TextStyle(
@@ -344,11 +347,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 10.0),
+                                    padding: EdgeInsets.only(top: uni_height/64.0),
                                     child: Image(
                                       image: AssetImage('images/trophies/bronze.png'),
-                                      width: 30.0,
-                                      height: 30.0,
+                                      width: uni_width/15,
+                                      height: uni_height/24,
                                     ),
                                   )
                                 ],
@@ -358,10 +361,10 @@ class _TwoPanelsState extends State<TwoPanels>
                         )
                       ),
                     ),
-                    Padding(padding: EdgeInsets.only(top: 10.0)),
+                    Padding(padding: EdgeInsets.only(top: uni_height/64.0)),
                     Container(
-                      height: 130.0,
-                      width: 370.0,
+                      height: uni_height/5.8,
+                      width: uni_width/1.12,
                       child: Card(
                           color: Colors.white70,
                           shape: RoundedRectangleBorder(
@@ -369,17 +372,17 @@ class _TwoPanelsState extends State<TwoPanels>
                           ),
                           elevation: 20.0,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                FlutterLogo(size: 80.0),
+                                FlutterLogo(size: (uni_height*uni_width)/3840.0),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 4.0, right: 13.0),
+                                  padding: EdgeInsets.only(left: uni_width/90, right: uni_width/27.692),
                                   child: ClipOval(
                                     child: Container(
-                                      height: 100.0,
-                                      width: 2.0,
+                                      height: uni_height/6.4,
+                                      width: uni_width/180,
                                       decoration: BoxDecoration(
                                         color: Colors.blue,
                                       ),
@@ -393,11 +396,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                       'Levels',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20.0
+                                          fontSize: uni_width/25
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 10.0),
+                                      padding: EdgeInsets.only(top: uni_height/64),
                                       child: Text(
                                         'X',
                                         style: TextStyle(
@@ -406,23 +409,23 @@ class _TwoPanelsState extends State<TwoPanels>
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 10.0),
+                                      padding: EdgeInsets.only(top:  uni_height/64),
                                       child: Text(
                                         '20',
                                         style: TextStyle(
                                             fontWeight: FontWeight.w400,
-                                            fontSize: 20.0
+                                            fontSize: uni_width/25
                                         ),
                                       ),
                                     )
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 13.0, right: 25.0),
+                                  padding: EdgeInsets.only(left: uni_width/27.692, right: uni_width/14.4),
                                   child: ClipOval(
                                     child: Container(
-                                      height: 100.0,
-                                      width: 2.0,
+                                      height: uni_height/6.4,
+                                      width: uni_width/180,
                                       decoration: BoxDecoration(
                                         color: Colors.blue,
                                       ),
@@ -434,11 +437,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                   children: <Widget>[
                                     Image(
                                       image: AssetImage('images/star.png'),
-                                      width: 30.0,
-                                      height: 30.0,
+                                      width: uni_width/15,
+                                      height: uni_height/24,
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 10.0),
+                                      padding: EdgeInsets.only(top: uni_height/64),
                                       child: Text(
                                         'X',
                                         style: TextStyle(
@@ -447,23 +450,23 @@ class _TwoPanelsState extends State<TwoPanels>
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 10.0),
+                                      padding: EdgeInsets.only(top:uni_height/64),
                                       child: Text(
                                         '20',
                                         style: TextStyle(
                                             fontWeight: FontWeight.w400,
-                                            fontSize: 20.0
+                                            fontSize: uni_width/25
                                         ),
                                       ),
                                     )
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 25.0, right: 8.0),
+                                  padding: EdgeInsets.only(left:  uni_width/15, right: uni_width/45),
                                   child: ClipOval(
                                     child: Container(
-                                      height: 100.0,
-                                      width: 2.0,
+                                      height: uni_height/6.4,
+                                      width: uni_width/180,
                                       decoration: BoxDecoration(
                                         color: Colors.blue,
                                       ),
@@ -477,11 +480,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                       'Trophies',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20.0
+                                          fontSize: uni_width/25
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 10.0),
+                                      padding: EdgeInsets.only(top: uni_height/64),
                                       child: Text(
                                         'X',
                                         style: TextStyle(
@@ -490,11 +493,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 10.0),
+                                      padding: EdgeInsets.only(top: uni_height/64.0),
                                       child: Image(
                                         image: AssetImage('images/trophies/bronze.png'),
-                                        width: 30.0,
-                                        height: 30.0,
+                                        width: uni_width/15,
+                                        height: uni_height/24,
                                       ),
                                     )
                                   ],
@@ -503,7 +506,7 @@ class _TwoPanelsState extends State<TwoPanels>
                             ),
                           )
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
