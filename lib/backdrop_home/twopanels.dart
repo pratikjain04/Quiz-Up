@@ -212,65 +212,296 @@ class _TwoPanelsState extends State<TwoPanels>
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    Row(
-                      children: <Widget>[
-                        Padding(padding: EdgeInsets.only(left: uni_width/18)),  //left: 20
-                        Padding(
-                          padding: EdgeInsets.only(top: 6.0),
-                          child: ClipOval(
-                            child: Container(
-                              color: Colors.white,
-                              height: 40.0,
-                              width: 40.0,
-                              child: Image(
-                                image: AssetImage('images/star.png'),
-                                fit: BoxFit.cover,
+                    Padding(padding: EdgeInsets.only(top: 4.0)),
+                    Container(
+                      height: 130.0,
+                      width: 370.0,
+                      child: Card(
+                        color: Colors.white70,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)
+                        ),
+                        elevation: 20.0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              FlutterLogo(size: 80.0),
+                              Padding(
+                                padding: EdgeInsets.only(left: 4.0, right: 13.0),
+                                child: ClipOval(
+                                  child: Container(
+                                    height: 100.0,
+                                    width: 2.0,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Levels',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 10.0),
+                                    child: Text(
+                                      'X',
+                                      style: TextStyle(
+                                        fontStyle: FontStyle.italic
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 10.0),
+                                    child: Text(
+                                      '20',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 20.0
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 13.0, right: 25.0),
+                                child: ClipOval(
+                                  child: Container(
+                                    height: 100.0,
+                                    width: 2.0,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Image(
+                                    image: AssetImage('images/star.png'),
+                                    width: 30.0,
+                                    height: 30.0,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 10.0),
+                                    child: Text(
+                                      'X',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 10.0),
+                                    child: Text(
+                                      '20',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 20.0
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 25.0, right: 8.0),
+                                child: ClipOval(
+                                  child: Container(
+                                    height: 100.0,
+                                    width: 2.0,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Trophies',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 10.0),
+                                    child: Text(
+                                      'X',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 10.0),
+                                    child: Image(
+                                      image: AssetImage('images/trophies/bronze.png'),
+                                      width: 30.0,
+                                      height: 30.0,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
                           ),
-                        ),
-                        Padding(padding: EdgeInsets.only(left: uni_width/45),),
-                        Padding(
-                          padding: EdgeInsets.only(top: 6.0),
-                          child: Text(
-                            '20',
-                            style: TextStyle(
-                                fontSize: 27.0, fontWeight: FontWeight.bold),
+                        )
+                      ),
+                    ),
+                    Padding(padding: EdgeInsets.only(top: 10.0)),
+                    Container(
+                      height: 130.0,
+                      width: 370.0,
+                      child: Card(
+                          color: Colors.white70,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)
                           ),
-                        ),
-                        Padding(padding: EdgeInsets.only(left: uni_width/2.571)),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 6.0),
-                          child: Container(
-                            height: 40.0,
-                            width: 40.0,
-                            child: Image(
-                              image: AssetImage('images/trophies/bronze.png'),
+                          elevation: 20.0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                FlutterLogo(size: 80.0),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 4.0, right: 13.0),
+                                  child: ClipOval(
+                                    child: Container(
+                                      height: 100.0,
+                                      width: 2.0,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      'Levels',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20.0
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: Text(
+                                        'X',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: Text(
+                                        '20',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 20.0
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 13.0, right: 25.0),
+                                  child: ClipOval(
+                                    child: Container(
+                                      height: 100.0,
+                                      width: 2.0,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Image(
+                                      image: AssetImage('images/star.png'),
+                                      width: 30.0,
+                                      height: 30.0,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: Text(
+                                        'X',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: Text(
+                                        '20',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 20.0
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25.0, right: 8.0),
+                                  child: ClipOval(
+                                    child: Container(
+                                      height: 100.0,
+                                      width: 2.0,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      'Trophies',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20.0
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: Text(
+                                        'X',
+                                        style: TextStyle(
+                                            fontStyle: FontStyle.italic
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: Image(
+                                        image: AssetImage('images/trophies/bronze.png'),
+                                        width: 30.0,
+                                        height: 30.0,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
                             ),
                           )
-                        ),
-                      ],
-                    ),
-                    Expanded(
-
-                      //todo: this needs to be changed!!!
-                      child: ListView.builder(
-                        itemBuilder: (BuildContext context, int index) {
-                          return Row(
-                            children: <Widget>[
-                             Container(
-                               height: uni_height/9.14,
-                               width: uni_width/5.14,
-                               color: Colors.red,
-                             ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 40.0),
-                              ),
-                              Text('Current Level: 20', style: TextStyle(fontSize: 25.0),),
-                            ],
-                          );
-                        },
-                        itemCount: 2,
                       ),
                     )
                   ],

@@ -6,10 +6,7 @@ class BackDrop extends StatefulWidget {
   _BackDropState createState() => _BackDropState();
 }
 
-class _BackDropState extends State<BackDrop>
-    with SingleTickerProviderStateMixin {
-  AnimationController controller;
-
+class _BackDropState extends State<BackDrop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
