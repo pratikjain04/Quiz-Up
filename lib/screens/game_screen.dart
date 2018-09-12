@@ -96,6 +96,9 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
+
+      double uni_height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -108,16 +111,19 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              (question != null) ? Container(
-                height: 100.0,
-                width: 300.0,
-                child: Text(
-                  question,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Raleway',
-                    fontSize: animation.value * 25,
-                    fontWeight: FontWeight.bold
+              (question != null) ? Padding(
+                padding: EdgeInsets.only(top: uni_height/210),
+                child: Container(
+                  height: 100.0,
+                  width: 300.0,
+                  child: Text(
+                    question,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Raleway',
+                      fontSize: animation.value * 25,
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                 ),
               ) : Container(
