@@ -21,7 +21,7 @@ class _TwoPanelsState extends State<TwoPanels>
   Map<String, int> data = null;
 
   FirebaseUser user;
-  String displayName= null;
+  String displayName = null;
   String displayPhoto = null;
   
   double startDragY = 0.0;
@@ -181,9 +181,9 @@ class _TwoPanelsState extends State<TwoPanels>
                           opacity: isPanelVisible ? 1.0 : 0.0,
                           duration: Duration(milliseconds: 500),
                           child: Text(
-                            'Quiz-Up',
+                            'Alpas',
                             style:
-                                TextStyle(color: Colors.white, fontSize: 18.0),
+                                TextStyle(color: Colors.white, fontSize: 18.0, fontFamily: 'Nexa'),
                           ),
                         ),
                         AnimatedOpacity(
