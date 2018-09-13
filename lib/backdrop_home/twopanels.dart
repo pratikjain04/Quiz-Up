@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo_1/ui/home/home_page_body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +17,8 @@ class _TwoPanelsState extends State<TwoPanels>
   static const header_height = 52.0;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  DocumentReference documentReference;
+  Map<String, int> data = null;
 
   FirebaseUser user;
   String displayName= null;
@@ -27,7 +29,6 @@ class _TwoPanelsState extends State<TwoPanels>
   
   
   Future<FirebaseUser> _getUserData() async{
-    
     user = await _auth.currentUser();
     return user;
   }
@@ -71,12 +72,38 @@ class _TwoPanelsState extends State<TwoPanels>
     _getUserData().then((user) {
         setState(() {
           displayName = user.displayName;
+          documentReference = Firestore.instance.document('users/${displayName}');
+          documentReference.get().then((datasnapshot){
+            if(datasnapshot.exists){
+              setState(() {
+                data = <String, int>{
+                  'GRELevels' : datasnapshot.data['GRELevels'],
+                  'GREStars' : datasnapshot.data['GREStars'],
+                  'GRETrophies' : datasnapshot.data['GRETrophies'],
+                  'NormalLevels' : datasnapshot.data['NormalLevels'],
+                  'NormalStars' : datasnapshot.data['NormalStars'],
+                  'NormalTrophies' : datasnapshot.data['NormalTrophies'],
+                };
+              });
+            } else {
+              setState(() {
+                data = <String, int>{
+                  'GRELevels' : 0,
+                  'GREStars' : 0,
+                  'GRETrophies': 0,
+                  'NormalLevels' : 0,
+                  'NormalStars' : 0,
+                  'NormalTrophies': 0,
+                };
+              });
+              documentReference.setData(data);
+            }
+          });
           displayPhoto = user.photoUrl;
         });
       }).catchError((e){
         print(e);
     });
-
   }
 
   @override
@@ -264,13 +291,13 @@ class _TwoPanelsState extends State<TwoPanels>
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(top:  uni_height/64),
-                                    child: Text(
-                                      '20',
+                                    child: (data != null) ? Text(
+                                      data['NormalLevels'].toString(),
                                       style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                         fontSize: uni_width/25
                                       ),
-                                    ),
+                                    ) : CircularProgressIndicator(),
                                   )
                                 ],
                               ),
@@ -305,12 +332,16 @@ class _TwoPanelsState extends State<TwoPanels>
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(top:uni_height/64),
-                                    child: Text(
-                                      '20',
+                                    child: (data != null) ? Text(
+                                      data['NormalStars'].toString(),
                                       style: TextStyle(
                                           fontWeight: FontWeight.w400,
                                           fontSize: uni_width/25
                                       ),
+                                    ) : Container(
+                                      child: CircularProgressIndicator(),
+                                      height: 20.0,
+                                      width: 20.0,
                                     ),
                                   )
                                 ],
@@ -348,11 +379,25 @@ class _TwoPanelsState extends State<TwoPanels>
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(top: uni_height/64.0),
-                                    child: Image(
-                                      image: AssetImage('images/trophies/bronze.png'),
-                                      width: uni_width/15,
-                                      height: uni_height/24,
-                                    ),
+                                    child: (data != null) ? Row(
+                                      children: <Widget>[
+                                        (data['NormalTrophies'] >= 1) ? Image(
+                                          image: AssetImage('images/trophies/bronze.png'),
+                                          width: uni_width/15,
+                                          height: uni_height/24,
+                                        ) : Container(),
+                                        (data['NormalTrophies'] >= 2) ? Image(
+                                          image: AssetImage('images/trophies/silver.png'),
+                                          width: uni_width/15,
+                                          height: uni_height/24,
+                                        ) : Container(),
+                                        (data['NormalTrophies'] == 3) ? Image(
+                                          image: AssetImage('images/trophies/gold.png'),
+                                          width: uni_width/15,
+                                          height: uni_height/24,
+                                        ) : Container(),
+                                      ]
+                                    ) : CircularProgressIndicator(),
                                   )
                                 ],
                               ),
@@ -410,13 +455,13 @@ class _TwoPanelsState extends State<TwoPanels>
                                     ),
                                     Padding(
                                       padding: EdgeInsets.only(top:  uni_height/64),
-                                      child: Text(
-                                        '20',
+                                      child: (data != null) ? Text(
+                                        data['GRELevels'].toString(),
                                         style: TextStyle(
                                             fontWeight: FontWeight.w400,
                                             fontSize: uni_width/25
                                         ),
-                                      ),
+                                      ) : CircularProgressIndicator(),
                                     )
                                   ],
                                 ),
@@ -451,12 +496,16 @@ class _TwoPanelsState extends State<TwoPanels>
                                     ),
                                     Padding(
                                       padding: EdgeInsets.only(top:uni_height/64),
-                                      child: Text(
-                                        '20',
+                                      child: (data != null) ? Text(
+                                        data['GREStars'].toString(),
                                         style: TextStyle(
                                             fontWeight: FontWeight.w400,
                                             fontSize: uni_width/25
                                         ),
+                                      ) : Container(
+                                        child: CircularProgressIndicator(),
+                                        height: 20.0,
+                                        width: 20.0,
                                       ),
                                     )
                                   ],
@@ -494,11 +543,25 @@ class _TwoPanelsState extends State<TwoPanels>
                                     ),
                                     Padding(
                                       padding: EdgeInsets.only(top: uni_height/64.0),
-                                      child: Image(
-                                        image: AssetImage('images/trophies/bronze.png'),
-                                        width: uni_width/15,
-                                        height: uni_height/24,
-                                      ),
+                                      child: (data != null) ? Row(
+                                        children: <Widget>[
+                                          (data['GRETrophies'] >= 1) ? Image(
+                                            image: AssetImage('images/trophies/bronze.png'),
+                                            width: uni_width/15,
+                                            height: uni_height/24,
+                                          ) : Container(),
+                                          (data['GRETrophies'] >= 2) ? Image(
+                                            image: AssetImage('images/trophies/silver.png'),
+                                            width: uni_width/15,
+                                            height: uni_height/24,
+                                          ) : Container(),
+                                          (data['GRETrophies'] == 3) ? Image(
+                                            image: AssetImage('images/trophies/gold.png'),
+                                            width: uni_width/15,
+                                            height: uni_height/24,
+                                          ) : Container(),
+                                        ]
+                                      ) : CircularProgressIndicator(),
                                     )
                                   ],
                                 ),
@@ -589,7 +652,6 @@ class _TwoPanelsState extends State<TwoPanels>
     return LayoutBuilder(builder: bothPanels);
   }
 
-
   Widget _loadImage(){
     Image image;
     try{
@@ -604,5 +666,3 @@ class _TwoPanelsState extends State<TwoPanels>
 
 
 }
-
-
