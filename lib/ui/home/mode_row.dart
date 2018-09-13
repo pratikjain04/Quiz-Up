@@ -11,6 +11,10 @@ class ModeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double uni_height = MediaQuery.of(context).size.height;
+    double uni_width = MediaQuery.of(context).size.width;
+
     final modeThumbnail = new Container(
       margin: new EdgeInsets.symmetric(
         vertical: 16.0
@@ -18,8 +22,8 @@ class ModeRow extends StatelessWidget {
       alignment: FractionalOffset.centerLeft,
       child: new Image(
         image: new AssetImage(mode.image),
-        height: 102.0,
-        width: 102.0,
+        height: uni_height/6.2745,
+        width: uni_width/3.52,
       ),
     );
 

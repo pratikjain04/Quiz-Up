@@ -183,8 +183,8 @@ class _TwoPanelsState extends State<TwoPanels>
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.0,
-                                fontFamily: 'Nexa',
-                                fontWeight: FontWeight.bold),
+                                fontFamily: 'Poppins',
+                                ),
                           ),
                         ),
                         AnimatedOpacity(

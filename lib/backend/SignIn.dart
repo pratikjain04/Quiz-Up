@@ -16,7 +16,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
   @override
   void initState(){
     super.initState();
-    controller = AnimationController(duration: Duration(milliseconds: 1700),vsync: this);
+    controller = AnimationController(duration: Duration(milliseconds: 2500),vsync: this);
     animation =  CurvedAnimation(parent: controller, curve: Curves.decelerate);
 
     controller.addListener(() => setState(() {}));
@@ -118,6 +118,8 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
     );  }
 }
 
+
+/*
 class SignInClipper extends CustomClipper<Path> {
 
 
@@ -135,6 +137,7 @@ class SignInClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
+*/
 /*
 FIRST STACK WIDGET
 ClipPath(
