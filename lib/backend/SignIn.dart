@@ -59,9 +59,16 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
             Padding(
               padding: EdgeInsets.only(top: uni_height/2 - uni_height/3.2),
             ),
-            FlutterLogo(
-              size: (animation.value * 90),
-            ),
+//            FlutterLogo(
+//              size: (animation.value * 90),
+//            ),
+            Container(
+              height: (animation.value*120),
+              width: (animation.value*120),
+              child: Image(
+                image: AssetImage('images/logo2.png'),
+              ),
+              ),
             Padding(padding: EdgeInsets.only(top: uni_height/16)),
             Text(
               "Alpas",
