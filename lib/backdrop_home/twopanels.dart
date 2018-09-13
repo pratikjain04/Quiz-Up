@@ -338,7 +338,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                           fontWeight: FontWeight.w400,
                                           fontSize: uni_width/25
                                       ),
-                                    ) : CircularProgressIndicator(),
+                                    ) : Container(
+                                      child: CircularProgressIndicator(),
+                                      height: 20.0,
+                                      width: 20.0,
+                                    ),
                                   )
                                 ],
                               ),
@@ -498,7 +502,11 @@ class _TwoPanelsState extends State<TwoPanels>
                                             fontWeight: FontWeight.w400,
                                             fontSize: uni_width/25
                                         ),
-                                      ) : CircularProgressIndicator(),
+                                      ) : Container(
+                                        child: CircularProgressIndicator(),
+                                        height: 20.0,
+                                        width: 20.0,
+                                      ),
                                     )
                                   ],
                                 ),
@@ -644,7 +652,6 @@ class _TwoPanelsState extends State<TwoPanels>
     return LayoutBuilder(builder: bothPanels);
   }
 
-
   Widget _loadImage(){
     Image image;
     try{
@@ -659,5 +666,3 @@ class _TwoPanelsState extends State<TwoPanels>
 
 
 }
-
-
