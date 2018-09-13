@@ -68,6 +68,10 @@ flutter:
       weight: 600
     - asset: fonts/Poppins-Regular.ttf
       weight: 400
+  - family: Nexa
+    fonts:
+    - asset: fonts/Nexa_Bold.otf
+    - asset: fonts/Nexa_Light.otf
 
   #   - family: Trajan Pro
   #     fonts:

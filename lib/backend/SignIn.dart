@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-
 class SignIn extends StatefulWidget {
   @override
   SignInState createState() => SignInState();
@@ -68,8 +67,10 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
               "Alpas",
               style: TextStyle(
                   color: Colors.white,
+                  fontFamily: 'Nexa',
                   fontSize: 50.0,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.normal
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: uni_height/8),
