@@ -17,7 +17,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
   @override
   void initState(){
     super.initState();
-    controller = AnimationController(duration: Duration(milliseconds: 2300),vsync: this);
+    controller = AnimationController(duration: Duration(milliseconds: 1700),vsync: this);
     animation =  CurvedAnimation(parent: controller, curve: Curves.decelerate);
 
     controller.addListener(() => setState(() {}));
@@ -51,41 +51,32 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
 
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: <Widget>[
-        ClipPath(
-          child: Container(
-            //gradient defined inside the BoxDecoration
-            decoration: BoxDecoration(
-                color: Colors.lightBlueAccent,
-                gradient: LinearGradient(colors: <Color>[
-                  Colors.lightBlueAccent,
-                  Colors.lightBlue[400],
-                  Colors.blue[600],
-                ])),
-          ),
-          clipper: SignInClipper(),
+        Image(
+          image: AssetImage('images/SignInBackGround/finalBack.gif'),
+          fit: BoxFit.cover,
         ),
         Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: uni_height/2 - 200.0),
+              padding: EdgeInsets.only(top: uni_height/2 - uni_height/3.2),
             ),
             FlutterLogo(
               size: (animation.value * 90),
             ),
-            Padding(padding: EdgeInsets.only(top: 40.0)),
+            Padding(padding: EdgeInsets.only(top: uni_height/16)),
             Text(
-              "Quiz Up",
+              "Alpas",
               style: TextStyle(
-                  color: Colors.lightBlueAccent,
+                  color: Colors.white,
                   fontSize: 50.0,
                   fontWeight: FontWeight.bold),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 80.0),
+              padding: EdgeInsets.only(top: uni_height/8),
               child: Center(
                 child: Container(
-                  width: 330.0,
-                  height: 50.0,
+                  width: uni_width/1.09,
+                  height: uni_height/12.8,
                   child: RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0)),
@@ -96,14 +87,15 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
                       children: <Widget>[
                         Image(
                             image: AssetImage('images/whitegooglelogo.png'),
-                            height: 20.0,
-                            width: 20.0),
-                        Padding(padding: EdgeInsets.all(25.0)),
+                            height: uni_height/32,
+                            width: uni_width/18
+                        ),
+                        Padding(padding: EdgeInsets.all(uni_width/14.4)),
                         Text(
                           'Sign In with Google',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18.0,
+                            fontSize: uni_width/20,
                           ),
                         )
                       ],
@@ -135,3 +127,19 @@ class SignInClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
+/*
+FIRST STACK WIDGET
+ClipPath(
+          child: Container(
+            //gradient defined inside the BoxDecoration
+            decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+                gradient: LinearGradient(colors: <Color>[
+                  Colors.lightBlueAccent,
+                  Colors.lightBlue[400],
+                  Colors.blue[600],
+                ])),
+          ),
+          clipper: SignInClipper(),
+        ),
+ */

@@ -7,7 +7,7 @@ void main() => runApp(new MaterialApp(
   theme: ThemeData(
     canvasColor: Colors.black87,
     iconTheme: IconThemeData(
-        color: Colors.blue[300]
+        color: Colors.blue[300],
     ),
     accentColor: Colors.amber[900],
     brightness: Brightness.dark,
