@@ -66,7 +66,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
               height: (animation.value*120),
               width: (animation.value*120),
               child: Image(
-                image: AssetImage('images/logo2.png'),
+                image: AssetImage('images/appLogo.png'),
               ),
               ),
             Padding(padding: EdgeInsets.only(top: uni_height/16)),

@@ -18,8 +18,8 @@ class ModeRow extends StatelessWidget {
       alignment: FractionalOffset.centerLeft,
       child: new Image(
         image: new AssetImage(mode.image),
-        height: 92.0,
-        width: 92.0,
+        height: 102.0,
+        width: 102.0,
       ),
     );
 

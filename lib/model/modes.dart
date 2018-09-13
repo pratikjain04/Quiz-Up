@@ -15,7 +15,7 @@ List<Mode> Modes = [
   const Mode(
     name: "GRE Mode",
     description: "Educational Gaming for GRE Preparation",
-    image: "images/neptune.png",
+    image: "images/great.png",
   ),
   const Mode(
     name: "Profile",
