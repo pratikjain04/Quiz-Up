@@ -48,6 +48,10 @@ flutter:
   - images/LevelsBackground/SilverBackground.jpeg
   - images/LevelsBackground/BronzeBackground.jpeg
   - images/SignInBackGround/finalBack.gif
+  - images/bronzemedal.png
+  - images/silvermedal.png
+  - images/goldmedal.png
+  - images/bgrdimage.jpeg
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.io/assets-and-images/#from-packages
