@@ -118,39 +118,3 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
     );  }
 }
 
-
-/*
-class SignInClipper extends CustomClipper<Path> {
-
-
-  @override
-  Path getClip(Size size) {
-    var path = new Path();
-    path.moveTo(0.0, size.height);
-    path.lineTo(0.0, size.height - size.height/6);
-    path.lineTo(size.width, size.height - size.height/1.271);
-    path.lineTo(size.width, size.height);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
-}
-*/
-/*
-FIRST STACK WIDGET
-ClipPath(
-          child: Container(
-            //gradient defined inside the BoxDecoration
-            decoration: BoxDecoration(
-                color: Colors.lightBlueAccent,
-                gradient: LinearGradient(colors: <Color>[
-                  Colors.lightBlueAccent,
-                  Colors.lightBlue[400],
-                  Colors.blue[600],
-                ])),
-          ),
-          clipper: SignInClipper(),
-        ),
- */
