@@ -13,6 +13,7 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
   AnimationController controller;
   Animation<double> animation;
 
+
   @override
   void initState(){
     super.initState();
@@ -59,9 +60,6 @@ class SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
             Padding(
               padding: EdgeInsets.only(top: uni_height/2 - uni_height/3.2),
             ),
-//            FlutterLogo(
-//              size: (animation.value * 90),
-//            ),
             Container(
               height: (animation.value*120),
               width: (animation.value*120),

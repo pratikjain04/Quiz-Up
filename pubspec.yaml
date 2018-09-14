@@ -11,6 +11,7 @@ dependencies:
   firebase_auth:
   google_sign_in:
   cloud_firestore:
+  audioplayers:
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +49,7 @@ flutter:
   - images/LevelsBackground/SilverBackground.jpeg
   - images/LevelsBackground/BronzeBackground.jpeg
   - images/SignInBackGround/finalBack.gif
+  - assets/backMusic.mp3
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.io/assets-and-images/#from-packages
