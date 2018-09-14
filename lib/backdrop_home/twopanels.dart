@@ -12,8 +12,8 @@ class TwoPanels extends StatefulWidget {
 
 class _TwoPanelsState extends State<TwoPanels>
     with SingleTickerProviderStateMixin {
-  AnimationController controller;
 
+  AnimationController controller;
   static const header_height = 52.0;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;

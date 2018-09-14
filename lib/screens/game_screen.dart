@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// TODO: Page strictly under construction
+
 // TODO: Add a timer
-// TODO: Add a submit button
-// TODO: More fleshed out UI
 // Todo: Add Current Level icon in game screen
 
 class GameHome extends StatefulWidget {
@@ -29,6 +27,7 @@ class GameHomeState extends State<GameHome> with TickerProviderStateMixin{
     @override
     void initState() {
       super.initState();
+
       controller = AnimationController(duration: Duration(milliseconds: 500),vsync: this);
       animation =  CurvedAnimation(parent: controller, curve: Curves.linear);
       controller.addListener(() => setState(() {}));

@@ -7,14 +7,12 @@ import 'screens/comingsoon.dart';
 import 'backdrop_home//load_two_panel.dart';
 import 'package:flutter/services.dart';
 import 'screens/testing.dart';
-
-
+import 'package:audioplayers/audio_cache.dart';
 void main() {
 
  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).whenComplete((){
    runApp(new MaterialApp(
      debugShowCheckedModeBanner: false,
-
      home: new Splash(),
      routes: <String, WidgetBuilder>{
        '/Home': (BuildContext context) => new BackDrop(),
@@ -35,10 +33,13 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  static AudioCache player = AudioCache();
 
   @override
   void initState() {
     super.initState();
+    player.play('backMusic.mp3');
+    player.loop('backMusic.mp3');
     _auth.currentUser().then((user){
       if(user != null)
         Timer(Duration(milliseconds: 1200), () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false));
