@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:demo_1/model/modes.dart';
 import 'mode_row.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class HomePageBody extends StatelessWidget {
+//
+//   AudioPlayer audioPlayer = AudioPlayer();
+//   String url ='https://drive.google.com/open?id=1l2QmwTVv-fwa3XugoWZuhmVuN5-BeDIu';
+
   @override
   Widget build(BuildContext context) {
 
     double uni_height = MediaQuery.of(context).size.height;
     double uni_width = MediaQuery.of(context).size.width;
+
 
 
     return Expanded(
@@ -53,7 +59,7 @@ class HomePageBody extends StatelessWidget {
                   splashColor: Colors.lightBlueAccent,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0)),
-                  child: Text('Settings',
+                  child: Text('Mute',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: uni_width/16.36,
@@ -114,4 +120,19 @@ class HomePageBody extends StatelessWidget {
       ),
     );
   }
+
+//
+//   play() async{
+//
+//     int result = await audioPlayer.play(url);
+//     if(result==1)
+//       print('Played');
+//   }
+//
+//   mute() async{
+//     int result = await audioPlayer.pause();
+//     if(result == 1)
+//       print("Paused");
+//   }
+
 }

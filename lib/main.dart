@@ -8,6 +8,7 @@ import 'backdrop_home//load_two_panel.dart';
 import 'package:flutter/services.dart';
 import 'screens/levels_screen.dart';
 import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() {
 
@@ -33,14 +34,18 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  static AudioCache player = AudioCache();
+  final FirebaseAuth _auth = FirebaseAuth.instance;//static AudioCache player = AudioCache();
+ // AudioPlayer audioPlayer = AudioPlayer();
+ // String url = 'https://drive.google.com/open?id=1l2QmwTVv-fwa3XugoWZuhmVuN5-BeDIu';
 
   @override
   void initState() {
     super.initState();
-    player.play('backMusic.mp3');
-    player.loop('backMusic.mp3');
+   // player.play('backMusic.mp3');
+   // player.loop('backMusic.mp3');
+
+   // play();
+   // loop();
     _auth.currentUser().then((user){
       if(user != null)
         Timer(Duration(milliseconds: 1200), () => Navigator.of(context).pushNamedAndRemoveUntil('/Home', (Route<dynamic> route) => false));
@@ -71,5 +76,20 @@ class _SplashState extends State<Splash> {
       ),
     );
   }
+//
+//  play() async{
+//
+//    int result = await audioPlayer.play(url);
+//    if(result==1)
+//      print('Played');
+//  }
+//
+//  loop() async{
+//    int result = await audioPlayer.seek(new Duration(seconds: 0));
+//    if(result==1)
+//      print('Loop Successful');
+//  }
+
+
 }
 
